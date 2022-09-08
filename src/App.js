@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {  useEffect, useState } from 'react';
+import AddTourPackages from "./components/AddTourPackages";
+import Display from "./components/Display";
+import AddHotelPackages from "./components/AddHotelPackages";
+import ViewHotelDetails from "./components/ViewHotelDetails";
+import UpdateHotelDetails from "./components/UpdateHotelDetails";
+import AddReservation from "./components/AddReservation";
+import UpdateReservation from "./components/UpdateReservation";
+import ViewReservationDetails from "./components/ViewReservationDetails";
+import ReservationDailySummary from "./components/ReservationDailySummary";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <div>
+        <Router>
+          <Routes>
+
+          <Route  path="/AddTourPackages" element={<AddTourPackages />} />
+          <Route  path="/Display" element={<Display />} />
+          <Route  path="/AddHotelPackages" element={<AddHotelPackages />} />
+          <Route  path="/ViewHotelDetails" element={<ViewHotelDetails />} />
+          <Route  path="/UpdateHotelDetails/:id" element={<UpdateHotelDetails />} />
+          <Route  path="/AddReservation" element={<AddReservation />} />
+          <Route  path="/UpdateReservation/:id" element={<UpdateReservation />} />
+          <Route  path="/ViewReservationDetails" element={<ViewReservationDetails />} />
+          <Route  path="/ReservationDailySummary" element={<ReservationDailySummary />} />
+
+          </Routes>
+          </Router>
+          </div>
+
   );
 }
 

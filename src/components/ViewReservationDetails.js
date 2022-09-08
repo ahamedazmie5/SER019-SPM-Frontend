@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class ViewHotelDetails extends Component{
+export default class ViewReservationDetails extends Component{
 constructor(props){
 super(props);
 
@@ -16,7 +16,7 @@ componentDidMount(){
 }
 
 retrievePosts(){
-axios.get("http://localhost:8080/travelgo/packages/getAllHotelPackages").then(res =>{
+axios.get("http://localhost:8080/travelgo/packages/getAllHotelReservations").then(res =>{
   console.log("data",res.data);
   this.setState({
   posts:res.data
@@ -32,22 +32,27 @@ this.retrievePosts();
 }
 
 filterData(posts,searchKey){
-console.log(posts)
+
 const result = posts.filter((post) =>
-post.Hotel_Name.toLowerCase().includes(searchKey)||
-post.Location.toLowerCase().includes(searchKey)
+post.Customer_NIC.toLowerCase().includes(searchKey)||
+post.Customer_Name.toLowerCase().includes(searchKey)
 )
 this.setState({posts:result})
 }
 
-handleSearchArea = async (e) =>{
+handleSearchArea = (e) =>{
+
     const searchKey=e.currentTarget.value;
-    await axios.get("http://localhost:8080/travelgo/packages/getAllHotelPackages").then(res =>{
-  console.log("data",res.data);
-  this.filterData(res.data,searchKey)
-})
-   
+
+    axios.get(`http://localhost:8080/travelgo/getAllHotelReservations`).then(res =>{
+if(res.data.success){
+
+    this.filterData(res.data.existingreservation,searchKey)
 }
+});
+
+}
+
 
 render() {
 return (
@@ -79,13 +84,13 @@ return (
     <div className="row">
 <div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
 
-<h4>All Hotel Details</h4>
+<h4>All Hotel Reservations</h4>
 </div>
 <div className="col-lg-3 mt-2 mb-2">
     <input
     className="form-control"
     type="search"
-    placeholder="Search (Hotel_Name / Location)"
+    placeholder="Search (NIC / Name)"
     name="searchQuery"
     onChange={this.handleSearchArea}>
     </input>
@@ -95,13 +100,13 @@ return (
 <thead>
 <tr>
 <th Scope="col">#</th>
-<th Scope="col">Hotel ID</th>
-<th Scope="col">Hotel Name</th>
-<th Scope="col">Single Room Price</th>
-<th Scope="col">Double Room Price</th>
-<th Scope="col">Luxury Room Price</th>
-<th Scope="col">Hotel Contact</th>
-<th Scope="col">Location</th>
+<th Scope="col">Customer_Name</th>
+<th Scope="col">Customer_NIC</th>
+<th Scope="col">Contact_Number</th>
+<th Scope="col">Check_In_Date</th>
+<th Scope="col">Check_Out_Date</th>
+<th Scope="col">Room_Type</th>
+<th Scope="col">No_Of_Members</th>
 </tr>
 </thead>
 
@@ -111,24 +116,16 @@ return (
 <th scope="row">{index+1}</th>
 <td>
 <a href={`/post/${post._id}`} style={{textDecoration:'none'}}>
-{post.Hotel_ID}
+{post.Customer_Name}
 </a>
 </td>
-<td>{post.Hotel_Name}</td>
-<td>{post.Single_Room_Price}</td>
-<td>{post.Double_Room_Price}</td>
-<td>{post.Luxury_Room_Price}</td>
-<td>{post.Hotel_Contact}</td>
-<td>{post.Location}</td>
-<td>
-<a className="btn btn-warning" href={`/UpdateHotelDetails/${post._id}`}>
-<i className="fas fa-edit"></i>&nbsp;Edit
-</a>
-&nbsp;
-<a className="btn btn-danger" href="/#" onClick={() =>this.onDelete(post._id)}>
-<i className="fas fa-trash-alt"></i>&nbsp;Delete
-</a>
-</td>
+<td>{post.Customer_NIC}</td>
+<td>{post.Contact_Number}</td>
+<td>{post.Check_In_Date}</td>
+<td>{post.Check_Out_Date}</td>
+<td>{post.Room_Type}</td>
+<td>{post.No_Of_Members}</td>
+
 </tr>
 ))}
 </tbody>
