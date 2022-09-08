@@ -56,7 +56,7 @@ const WriteBlog = () => {
           'Content-Type': 'application/json',
         },
       });
-      // const data = await insert.json();
+      const data = await insert.json();
       console.log(insert, 'data');
     } catch (error) {
       console.error(error.message);
@@ -118,7 +118,7 @@ const WriteBlog = () => {
               >
                 {' '}
                 <div style={{ marginTop: 30 }}>
-                  <TextField style={{}} type="file" onChange={imgUpload}>
+                  <TextField style={{}} type="file">
                     Image
                   </TextField>
                 </div>
