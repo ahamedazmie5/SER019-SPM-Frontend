@@ -36,7 +36,7 @@ const ViewOneBlog = () => {
   return (
     <>
       <div>
-        <a href="/">Back to previous page</a>
+        <a href="/viewblogs">Back to previous page</a>
         <Typography
           style={{
             textAlign: 'center',
