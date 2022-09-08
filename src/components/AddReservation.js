@@ -74,23 +74,18 @@ return (
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/ViewHotelDetails"><h5>View All Hotels Packages</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/CusViewHotelDetails"><h5>View All Hotels Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/AddReservation"><h5>Add New Reservation</h5></a></b>
+          <b><a className="nav-link active" aria-current="page" href="/AddReservation"><h5>Add New Reservation</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/edit1/:id"><h5>Update Hotel Details</h5></a></b>
+          <b><a className="nav-link" href="/UpdateReservation/:id"><h5>Update Reservation Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/edit1/:id"><h5>Delete Hotel Details</h5></a></b>
+          <b><a className="nav-link" href="/edit1/:id"><h5>Delete Reservation Details</h5></a></b>
         </li>
-        <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/a"><h5>Reservation Daily Summary</h5></a></b>
-        </li>
-        <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/b"><h5>View Daily Summary</h5></a></b>
-        </li>
+        
       </ul>
     </div>
   
@@ -146,7 +141,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginRight:'20px'}}>Check_Out_Date :</label>
+<label style={{marginBottom:'10px',marginRight:'80px'}}>Check_Out_Date :</label>
 <input type="text"
 className="form-contorl"
 name="Check_Out_Date"
@@ -156,7 +151,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginRight:'75px'}}>Room Type :</label>
+<label style={{marginBottom:'10px',marginRight:'117px'}}>Room Type :</label>
 <input type="text"
 className="form-contorl"
 name="Room_Type"
@@ -166,7 +161,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginRight:'55px'}}>No_Of_Members :</label>
+<label style={{marginBottom:'10px',marginRight:'75px'}}>No_Of_Members :</label>
 <input type="text"
 className="form-contorl"
 name="No_Of_Members"
@@ -177,10 +172,8 @@ onChange={this.handleInputChange}/>
 
 </center>
 </th></tr></table>
-<button className="btn btn-success" type="submit" style={{marginTop:'15px', marginRight:'40px',marginBottom:'20px'}} onClick={this.onSubmit}>
-    <i className="far fa-click-square"></i>
-&nbsp; Back
-</button>
+
+<button className="btn btn-success"><a href="/CusViewHotelDetails" style={{textDecoration:'none',color:'white',marginTop:'15px', marginRight:'10px',marginBottom:'30px'}}>Back</a></button>
 
 <button className="btn btn-success" type="submit" style={{marginTop:'15px',marginLeft:'40px',marginBottom:'20px'}} onClick={this.onSubmit}>
     <i className="far fa-click-square"></i>

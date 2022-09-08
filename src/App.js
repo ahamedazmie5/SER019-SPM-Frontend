@@ -9,6 +9,8 @@ import AddReservation from "./components/AddReservation";
 import UpdateReservation from "./components/UpdateReservation";
 import ViewReservationDetails from "./components/ViewReservationDetails";
 import ReservationDailySummary from "./components/ReservationDailySummary";
+import CusViewHotelDetails from "./components/CusViewHotelDetails";
+import ReservationHomePage from "./components/ReservationHomePage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route  path="/UpdateReservation/:id" element={<UpdateReservation />} />
           <Route  path="/ViewReservationDetails" element={<ViewReservationDetails />} />
           <Route  path="/ReservationDailySummary" element={<ReservationDailySummary />} />
+          <Route  path="/CusViewHotelDetails" element={<CusViewHotelDetails />} />
+          <Route  path="/ReservationHomePage" element={<ReservationHomePage />} />
 
           </Routes>
           </Router>

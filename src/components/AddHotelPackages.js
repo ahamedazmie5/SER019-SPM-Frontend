@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import img32 from'./Images/32.jpg';
+import img34 from'./Images/34.jpg';
+import img33 from'./Images/33.jpg';
 
 export default class AddHotelPackages extends Component {
 
@@ -73,20 +76,21 @@ return (
           <b><a className="nav-link" aria-current="page" href="/ViewHotelDetails"><h5>View All Hotels</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/AddHotelPackages"><h5>Add New Hotel Packages</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/ViewReservationDetails"><h5>View All Reservations</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/UpdateHotelDetails/:id"><h5>Update Hotel Details</h5></a></b>
+          <b><a className="nav-link active" aria-current="page" href="/AddHotelPackages"><h5>Add New Hotel Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/UpdateHotelDetails/:id"><h5>Delete Hotel Details</h5></a></b>
+          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Update Hotel Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/a"><h5>Reservation Daily Summary</h5></a></b>
+          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Delete Hotel Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/b"><h5>View Daily Summary</h5></a></b>
+          <b><a className="nav-link" href="/ReservationDailySummary"><h5>Reservation Daily Summary</h5></a></b>
         </li>
+        
       </ul>
     </div>
   
@@ -94,7 +98,13 @@ return (
     
 
 <div className="col-md-8 mt-4 mx-auto">
-    <h1 className="h3 mb-3 font-weight-normal" style={{color:'#FF0000'}}><b>Add new hotel details to the system</b></h1>
+<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
+
+<h4>Add New Hotel Packages</h4>
+</div>
+    <img src={img32}style={{width:'200px',height:'150px'}}></img>
+<img src={img34}style={{width:'200px',height:'150px'}}></img>
+<img src={img33}style={{width:'200px',height:'150px'}}></img>
     <form className="needs-validation" noValidate>
     <table style={{width:"60%",backgroundColor:'#d7dbdd'}}>
   <tr>

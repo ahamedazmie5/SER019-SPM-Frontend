@@ -91,25 +91,20 @@ return (
   
 
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/"><h5>View Menu</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/CusViewHotelDetails"><h5>View All Hotels Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/add1"><h5>Add Items to the menu</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/AddReservation"><h5>Add New Reservation</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/edit1/:id"><h5>Update Details</h5></a></b>
+          <b><a className="nav-link active" href="/UpdateReservation/:id"><h5>Update Reservation Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/edit1/:id"><h5>Delete Items</h5></a></b>
+          <b><a className="nav-link active" href="/edit1/:id"><h5>Delete Reservation Details</h5></a></b>
         </li>
-        <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/a"><h5>Item Daily Summary</h5></a></b>
-        </li>
-        <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/b"><h5>View Daily Summary</h5></a></b>
-        </li>
+        
       </ul>
       
       
