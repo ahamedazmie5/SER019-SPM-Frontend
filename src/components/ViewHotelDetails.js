@@ -32,7 +32,7 @@ this.retrievePosts();
 }
 
 filterData(posts,searchKey){
-
+console.log(posts)
 const result = posts.filter((post) =>
 post.Hotel_Name.toLowerCase().includes(searchKey)||
 post.Location.toLowerCase().includes(searchKey)
@@ -40,23 +40,14 @@ post.Location.toLowerCase().includes(searchKey)
 this.setState({posts:result})
 }
 
-handleSearchArea = (e) =>{
-
+handleSearchArea = async (e) =>{
     const searchKey=e.currentTarget.value;
-
-    axios.get(`http://localhost:8080/travelgo/getAllHotelPackages`).then(res =>{
-if(res.data.success){
-
-    this.filterData(res.data.existinghotelpackages,searchKey)
+    await axios.get("http://localhost:8080/travelgo/packages/getAllHotelPackages").then(res =>{
+  console.log("data",res.data);
+  this.filterData(res.data,searchKey)
+})
+   
 }
-});
-
-
-
-}
-
-
-
 
 render() {
 return (
@@ -64,19 +55,26 @@ return (
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
   
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" aria-current="page" href="/"><h5>View Menu</h5></a></b>
+          <b><a className="nav-link active" aria-current="page" href="/ViewHotelDetails"><h5>View All Hotels</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/add2"><h5>Add an Order</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/ViewReservationDetails"><h5>View All Reservations</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/edit/:id"><h5>Edit Order Details</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/AddHotelPackages"><h5>Add New Hotel Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/edit/:id"><h5>Delete Order</h5></a></b>
+          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Update Hotel Details</h5></a></b>
         </li>
+        <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
+          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Delete Hotel Details</h5></a></b>
+        </li>
+        <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
+          <b><a className="nav-link" href="/ReservationDailySummary"><h5>Reservation Daily Summary</h5></a></b>
+        </li>
+        
       </ul>
       
       
@@ -129,13 +127,21 @@ return (
 <td>{post.Luxury_Room_Price}</td>
 <td>{post.Hotel_Contact}</td>
 <td>{post.Location}</td>
-
+<td>
+<a className="btn btn-warning" href={`/UpdateHotelDetails/${post._id}`}>
+<i className="fas fa-edit"></i>&nbsp;Edit
+</a>
+&nbsp;
+<a className="btn btn-danger" href="/#" onClick={() =>this.onDelete(post._id)}>
+<i className="fas fa-trash-alt"></i>&nbsp;Delete
+</a>
+</td>
 </tr>
 ))}
 </tbody>
 </table>
 
-<button className="btn btn-success"><a href="/a" style={{textDecoration:'none',color:'white'}}>Next</a></button>
+
 </div>
 </div>
 )

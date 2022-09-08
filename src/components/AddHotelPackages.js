@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import img32 from'./Images/32.jpg';
+import img34 from'./Images/34.jpg';
+import img33 from'./Images/33.jpg';
 
 export default class AddHotelPackages extends Component {
 
@@ -73,20 +76,21 @@ return (
           <b><a className="nav-link" aria-current="page" href="/ViewHotelDetails"><h5>View All Hotels</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/AddHotelPackages"><h5>Add New Hotel Packages</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/ViewReservationDetails"><h5>View All Reservations</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/UpdateHotelDetails/:id"><h5>Update Hotel Details</h5></a></b>
+          <b><a className="nav-link active" aria-current="page" href="/AddHotelPackages"><h5>Add New Hotel Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/UpdateHotelDetails/:id"><h5>Delete Hotel Details</h5></a></b>
+          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Update Hotel Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/a"><h5>Reservation Daily Summary</h5></a></b>
+          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Delete Hotel Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/b"><h5>View Daily Summary</h5></a></b>
+          <b><a className="nav-link" href="/ReservationDailySummary"><h5>Reservation Daily Summary</h5></a></b>
         </li>
+        
       </ul>
     </div>
   
@@ -94,13 +98,19 @@ return (
     
 
 <div className="col-md-8 mt-4 mx-auto">
-    <h1 className="h3 mb-3 font-weight-normal" style={{color:'#FF0000'}}>Add new hotel details to the system</h1>
+<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
+
+<h4>Add New Hotel Packages</h4>
+</div>
+    <img src={img32}style={{width:'200px',height:'150px'}}></img>
+<img src={img34}style={{width:'200px',height:'150px'}}></img>
+<img src={img33}style={{width:'200px',height:'150px'}}></img>
     <form className="needs-validation" noValidate>
     <table style={{width:"60%",backgroundColor:'#d7dbdd'}}>
   <tr>
     <th><center>
-    <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginTop:'20px',marginRight:'10px'}}>Hotel ID :</label>
+    <div className="form-group" style={{marginBottom:'3px'}}>
+<label style={{marginleft:'100px',marginBottom:'10px',marginTop:'20px',marginRight:'110px'}}>Hotel ID :</label>
 <input type="text"
 className="form-contorl"
 name="Hotel_ID"
@@ -110,7 +120,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginTop:'20px',marginRight:'10px'}}>Hotel Name :</label>
+<label style={{marginBottom:'10px',marginTop:'20px',marginRight:'80px'}}>Hotel Name :</label>
 <input type="text"
 className="form-contorl"
 name="Hotel_Name"
@@ -120,7 +130,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginRight:'5px'}}>Single Room Price :</label>
+<label style={{marginBottom:'10px',marginRight:'35px'}}>Single Room Price :</label>
 <input type="text"
 className="form-contorl"
 name="Single_Room_Price"
@@ -130,7 +140,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginRight:'20px'}}>Double_Room_Price :</label>
+<label style={{marginBottom:'10px',marginRight:'25px'}}>Double_Room_Price :</label>
 <input type="text"
 className="form-contorl"
 name="Double_Room_Price"
@@ -140,7 +150,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginRight:'15px'}}>Luxury Room Price :</label>
+<label style={{marginBottom:'10px',marginRight:'30px'}}>Luxury Room Price :</label>
 <input type="text"
 className="form-contorl"
 name="Luxury_Room_Price"
@@ -150,7 +160,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginRight:'55px'}}>Hotel Contact :</label>
+<label style={{marginBottom:'10px',marginRight:'70px'}}>Hotel Contact :</label>
 <input type="text"
 className="form-contorl"
 name="Hotel_Contact"
@@ -160,7 +170,7 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'10px',marginRight:'55px'}}>Location :</label>
+<label style={{marginBottom:'10px',marginRight:'110px'}}>Location :</label>
 <input type="text"
 className="form-contorl"
 name="Location"
