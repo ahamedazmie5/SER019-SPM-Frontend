@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {  useEffect, useState } from 'react';
 import AddTourPackages from "./components/AddTourPackages";
+import AddAdmin from "./components/auth/AdminRegister";
 import Display from "./components/Display";
 import Navbar from "./components/layout/Navbar";
 import Login from "./components/auth/Login";
@@ -18,6 +19,7 @@ function App() {
           <Route  path="/login" element={<Login />} />
           <Route  path="/register" element={<Register />} />
           <Route  path="/AddTourPackages" element={<AddTourPackages />} />
+          <Route  path="/AddAdmin" element={<AddAdmin/>} />
           <Route  path="/Display" element={<Display />} />
           </Routes>
           </Router>

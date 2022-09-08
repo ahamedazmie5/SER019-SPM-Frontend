@@ -37,7 +37,7 @@ const Navbar = () => {
    
 
                 {/*  admin Pages */}
-				<a style={{ display: userRole == "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/stdgrps" aria-current="page">All Groups</a>
+				<a style={{ display: userRole == "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/AddAdmin" aria-current="page">All Groups</a>
                 <a style={{ display: userRole == "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/adminviewsub" aria-current="page">Ceate Submissions</a>
                 <a style={{ display: userRole == "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/HandleStaff" aria-current="page">Handle Staff</a>
 				<a style={{ display: userRole == "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/markingup" aria-current="page">Create Marking Schemes</a>
