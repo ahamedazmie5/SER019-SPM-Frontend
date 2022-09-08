@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {  useEffect, useState } from 'react';
 import AddTourPackages from "./components/AddTourPackages";
+import AddAdmin from "./components/auth/AdminRegister";
 import Display from "./components/Display";
 
 import Navbar from "./components/layout/Navbar";
@@ -27,6 +28,7 @@ function App() {
           <Route  path="/login" element={<Login />} />
           <Route  path="/register" element={<Register />} />
           <Route  path="/AddTourPackages" element={<AddTourPackages />} />
+          <Route  path="/AddAdmin" element={<AddAdmin/>} />
           <Route  path="/Display" element={<Display />} />
           <Route  path="/AddHotelPackages" element={<AddHotelPackages />} />
           <Route  path="/ViewHotelDetails" element={<ViewHotelDetails />} />
