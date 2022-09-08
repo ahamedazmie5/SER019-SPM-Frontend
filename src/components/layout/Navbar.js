@@ -34,11 +34,7 @@ const Navbar = () => {
                 <a style={{ display: userRole == "user" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" aria-current="page" href="/creategrp">Create Group</a>
                 <a style={{ display: userRole == "user" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/topicreg" aria-current="page">Register Reserch Topic</a>
 				<a style={{ display: userRole == "user" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" aria-current="page" href="/group-chat">Group Chat</a>
-                <a style={{ display: userRole == "user" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/reqsup" aria-current="page">Request Superviser</a>
-                <a style={{ display: userRole == "user" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/reqcosup" aria-current="page">Request co-superviser</a>
-				<a style={{ display: userRole == "user" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/viewsub" aria-current="page">Submissions</a>
-				<a style={{ display: userRole == "user" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/downtmp" aria-current="page">Downloads</a>
-				<a style={{ display: userRole == "user" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/markspage" aria-current="page">Final Marks</a>
+   
 
                 {/*  admin Pages */}
 				<a style={{ display: userRole == "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/stdgrps" aria-current="page">All Groups</a>
