@@ -11,6 +11,7 @@ import FolderIcon from '@mui/icons-material/Folder';
 import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 import axios from 'axios';
+//import { storage } from './firebase';
 
 import background from '../assets/blogBackground.jpg';
 
@@ -31,6 +32,7 @@ const WriteBlog = () => {
   const [title, setTitle] = useState('');
   const [subDescription, setsubDescription] = useState('');
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState(null);
 
   const onInsertCancell = () => {
     setsubDescription('');
@@ -43,20 +45,6 @@ const WriteBlog = () => {
   }, [title, subDescription, description]);
 
   const onInsertOk = async () => {
-    // const body = { title, subDescription, description };
-
-    // const insert = await fetch('/createBlogs', {
-    //   method: 'POST',
-    //   body: JSON.stringify(body),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    //alert('Blog successfully sent.');
     try {
       const body = { title, subDescription, description };
       console.log(body);
@@ -78,6 +66,13 @@ const WriteBlog = () => {
     setTitle('');
     setDescription('');
   };
+
+  const imgUpload = (e) => {
+    if (e.target.file[0]) {
+      setImage(e.target.file[0]);
+    }
+  };
+  console.log('image', image);
 
   return (
     <>
@@ -122,9 +117,10 @@ const WriteBlog = () => {
                 }}
               >
                 {' '}
-                <div style={{ marginTop: 5 }}>
-                  <Typography style={{ marginBottom: 3 }}>Image</Typography>
-                  <TextField />
+                <div style={{ marginTop: 30 }}>
+                  <TextField style={{}} type="file" onChange={imgUpload}>
+                    Image
+                  </TextField>
                 </div>
                 <div style={{ marginTop: 5 }}>
                   <Typography style={{ marginBottom: 3 }}>Title</Typography>
