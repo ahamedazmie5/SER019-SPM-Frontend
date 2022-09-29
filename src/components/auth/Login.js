@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
+import img from "../../assets/login.jpg" 
 
 const Login = () => {
 
@@ -29,7 +30,8 @@ const Login = () => {
 			localStorage.setItem("token", data?.data?.token);
 			localStorage.setItem("userRole", data?.data?.userRole);
 			localStorage.setItem("user", data?.data?.user);
-			navigate("/Display");
+            
+			navigate("/ViewHotelDetails");
 		}
 		else {
 			Swal.fire({
@@ -42,8 +44,25 @@ const Login = () => {
 
 
 	return (
-		<div>
-			<center>
+        <div style={{ marginTop: "30px" }}>
+        <br />
+            
+        <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+        <div className="card card0 border-0">
+
+          <div className="row d-flex">
+            <div className="col-lg-6">
+              <div className="card1 pb-5">
+                <div className="row px-3 justify-content-center mt-4 mb-5 border-line">
+                  <img src={img} style={{width:"80%" , height:"80%"}}/>
+                </div>
+              </div>
+            </div>
+
+           
+            <div className="col-lg-6">
+              <div className="card2 card border-0 px-4 py-5">
+			
 			<h1 className="heading">Log In</h1>
 			<p className="lead">
 				<i className="fas fa-user"></i> Log Into Your Account
@@ -76,8 +95,15 @@ const Login = () => {
 			<p className="link">
 				Don't have an account? <Link to="/register">Sign Up</Link>
 			</p>
-			</center>
+			
 		</div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+       
 	);
 };
 

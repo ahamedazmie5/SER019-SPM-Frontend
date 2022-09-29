@@ -3,6 +3,7 @@ import {  useEffect, useState } from 'react';
 import AddTourPackages from "./components/AddTourPackages";
 import AddAdmin from "./components/auth/AdminRegister";
 import Display from "./components/Display";
+import Allusers from "./components/AllUsers";
 
 import Navbar from "./components/layout/Navbar";
 import Login from "./components/auth/Login";
@@ -24,7 +25,7 @@ function App() {
         <Router>
           <Navbar/>
           <Routes>
-          <Route exact path="/" element={isauth ? <Display/> : <Landing/>} />
+          <Route exact path="/" element={isauth ? <ViewHotelDetails/> : <Landing/>} />
           <Route  path="/login" element={<Login />} />
           <Route  path="/register" element={<Register />} />
           <Route  path="/AddTourPackages" element={<AddTourPackages />} />
@@ -35,6 +36,7 @@ function App() {
           <Route  path="/UpdateHotelDetails/:id" element={<UpdateHotelDetails />} />
           <Route  path="/AddReservation" element={<AddReservation />} />
           <Route  path="/UpdateReservation/:id" element={<UpdateReservation />} />
+          <Route  path="/AllUsers" element={<Allusers />} />
 
           </Routes>
           </Router>
