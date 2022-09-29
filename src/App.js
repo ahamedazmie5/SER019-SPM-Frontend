@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {  useEffect, useState } from 'react';
 import AddTourPackages from "./components/AddTourPackages";
 import Display from "./components/Display";
+import AdminDisplay from "./components/AdminDisplay";
+import ViewTourPackage from "./components/ViewTourPackage";
 import AddHotelPackages from "./components/AddHotelPackages";
 import ViewHotelDetails from "./components/ViewHotelDetails";
 import UpdateHotelDetails from "./components/UpdateHotelDetails";
@@ -13,7 +15,7 @@ import ReservationDailySummary from "./components/ReservationDailySummary";
 import CusViewHotelDetails from "./components/CusViewHotelDetails";
 import ReservationHomePage from "./components/ReservationHomePage";
 import AddAdmin from './components/auth/AdminRegister';
-
+import UpdateTourPacakage from "./components/UpdateTourPacakage";
 import Navbar from './components/layout/Navbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -34,6 +36,8 @@ function App() {
 
           <Route  path="/AddTourPackages" element={<AddTourPackages />} />
           <Route  path="/Display" element={<Display />} />
+          <Route  path="/AdminDisplay" element={<AdminDisplay />} />
+          <Route  path="/ViewTourPackage/:id" element={<ViewTourPackage />} />
           <Route  path="/AddHotelPackages" element={<AddHotelPackages />} />
           <Route  path="/ViewHotelDetails" element={<ViewHotelDetails />} />
           <Route  path="/UpdateHotelDetails/:id" element={<UpdateHotelDetails />} />
@@ -49,6 +53,7 @@ function App() {
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
           <Route path="/AddAdmin" element={<AddAdmin />} />
           <Route path="/Display" element={<Display />} />
+          <Route path="/AdminDisplay" element={<AdminDisplay />} />
           <Route path="/AddHotelPackages" element={<AddHotelPackages />} />
           <Route path="/ViewHotelDetails" element={<ViewHotelDetails />} />
           <Route
@@ -63,6 +68,9 @@ function App() {
           <Route exact path="/viewblogs" element={<ViewBlogs />} />
           <Route path="/insertBlog" element={<WriteBlog />} />
           <Route path="/OneBlog/:id" element={<ViewOneBlog />} />
+
+          <Route path="/UpdateTourPackages/:id" element={<UpdateTourPacakage />} />
+
 
           </Routes>
           </Router>
