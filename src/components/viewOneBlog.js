@@ -13,6 +13,7 @@ const ViewOneBlog = () => {
   const [title, setTitle] = useState('');
   const [subDescription, setsubDescription] = useState('');
   const [description, setDescription] = useState('');
+  const [Image, setImage] = useState('');
 
   useEffect(() => {
     dataget();
@@ -29,6 +30,7 @@ const ViewOneBlog = () => {
       setTitle(jsonData.title);
       setsubDescription(jsonData.subDescription);
       setDescription(jsonData.description);
+      setImage(jsonData.img);
     }
   };
   console.log(title, subDescription, description);
@@ -101,7 +103,7 @@ const ViewOneBlog = () => {
           <div>
             <img
               style={{ width: '100%', height: 600 }}
-              src={arch1}
+              src={Image}
               alt="blog image"
             />
           </div>
