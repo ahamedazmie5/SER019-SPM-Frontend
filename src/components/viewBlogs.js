@@ -17,6 +17,7 @@ import Collapse from '@mui/material/Collapse';
 import arch1 from '../assets/arch.jpeg';
 import background from '../assets/blogBackground.jpg';
 import ViewOneBlog from './viewOneBlog';
+//import data from './data';
 
 const ViewBlogs = () => {
   const [title, setTitle] = useState();
@@ -24,8 +25,20 @@ const ViewBlogs = () => {
   const [description, setDescription] = useState('');
   const [blogsArray, setBlogsArray] = useState([]);
   const [expanded, setExpanded] = React.useState(false);
-  const [filter, setFilter] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const [id, setId] = useState();
+  const [image, setImage] = useState();
+
+  const styles = (theme) => ({
+    Card: {
+      width: 300,
+      margin: 'auto',
+    },
+    Media: {
+      height: 550,
+      width: '100%',
+    },
+  });
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -61,6 +74,7 @@ const ViewBlogs = () => {
         for (let i = 0; i < jsonData.length; i++) {
           let temp = {
             id: jsonData[i]._id,
+            image: jsonData[i].img,
             title: jsonData[i].title,
             subDescription: jsonData[i].subDescription,
           };
@@ -73,30 +87,35 @@ const ViewBlogs = () => {
     }
   };
 
-  const serchCgange = (e) => {
-    setFilter(e.target.value);
-  };
+  // const serchCgange = (e) => {
+  //   setFilter(e.target.value);
+  // };
+  // console.log(filter);
 
   //fiilter
-  let filterSearch = blogsArray.filter((items) => {
-    return Object.keys(items).some((key) =>
-      items[key]
-        .toString()
-        .toLowerCase()
-        .includes(filter.toString().toLowerCase())
-    );
-  });
+  // let filterSearch = data.cardData.filter((items) => {
+  //   return Object.keys(items).some((key) =>
+  //     items[key]
+  //       .toString()
+  //       .toLowerCase()
+  //       .includes(filter.toString().toLowerCase())
+  //   );
+  // });
 
   return (
     <>
+      <a href="/insertBlog" style={{ marginTop: 10 }}>
+        Write Blogs
+      </a>
       <div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
           {' '}
           <div>
             <input
               placeholder="Search here"
-              value={filter}
-              onChange={serchCgange.bind(this)}
+              type={'text'}
+              //value={filter}
+              onChange={(e) => setSearchTerm(e.target.value)}
             ></input>
           </div>
         </div>
@@ -150,43 +169,63 @@ const ViewBlogs = () => {
         </div> */}
         <br />
 
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 0 }}>
           <Grid
             container
-            spacing={{ xs: 2, md: 3 }}
+            columnSpacing={{ xs: 0 }}
+            rowSpacing={1}
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
-            {filterSearch.map((cards, index) => (
-              <Grid item xs={2} sm={4} md={4} key={index}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
+            {blogsArray
+              .filter((cards) => {
+                if (searchTerm === '') {
+                  return cards;
+                } else if (
+                  cards.title
+                    .toLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase())
+                ) {
+                  return cards;
+                }
+              })
+              .map((cards, index) => (
+                <Grid item xs={2} sm={4} md={4} key={index}>
+                  <div style={{ width: 300, maxHeight: 100 }}>
+                    <img
+                      src={cards.image}
+                      alt="Nine arch"
+                      style={{ height: '375px', width: '300px' }}
+                    />
+                    <Card sx={{ maxWidth: 345 }}>
+                      {/* <CardMedia
                     component="img"
-                    alt="Nine arch"
+                    //alt="Nine arch"
                     height="140"
-                    image="https://images.toseethe.world/wp-content/uploads/2020/03/15182142/9-Arch-Bridge-sitting-on-the-edge.jpeg"
-                  />
-
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {cards.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {cards.subDescription}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      onClick={(e) => {
-                        readMore(e, cards.id);
-                      }}
-                    >
-                      Read More
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
+                    //image={image}
+                    //image={cards.img}
+                  > */}{' '}
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {cards.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {cards.subDescription}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button
+                          size="small"
+                          onClick={(e) => {
+                            readMore(e, cards.id);
+                          }}
+                        >
+                          Read More
+                        </Button>
+                      </CardActions>
+                    </Card>
+                  </div>
+                </Grid>
+              ))}
           </Grid>
         </Box>
       </div>
