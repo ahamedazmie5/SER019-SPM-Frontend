@@ -82,10 +82,10 @@ return (
           <b><a className="nav-link active" aria-current="page" href="/AddHotelPackages"><h5>Add New Hotel Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Update Hotel Details</h5></a></b>
+          <b><a className="nav-link" href="/ViewHotelDetails"><h5>Update Hotel Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Delete Hotel Details</h5></a></b>
+          <b><a className="nav-link" href="/ViewHotelDetails"><h5>Delete Hotel Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
           <b><a className="nav-link" href="/ReservationDailySummary"><h5>Reservation Daily Summary</h5></a></b>
@@ -181,10 +181,7 @@ onChange={this.handleInputChange}/>
 
 </center>
 </th></tr></table>
-<button className="btn btn-success" type="submit" style={{marginTop:'15px', marginRight:'40px',marginBottom:'20px'}} onClick={this.onSubmit}>
-    <i className="far fa-click-square"></i>
-&nbsp; Back
-</button>
+<button className="btn btn-success"><a href="/ViewHotelDetails" style={{textDecoration:'none',color:'white',marginTop:'5px'}}>Back</a></button>
 
 <button className="btn btn-success" type="submit" style={{marginTop:'15px',marginLeft:'40px',marginBottom:'20px'}} onClick={this.onSubmit}>
     <i className="far fa-click-square"></i>

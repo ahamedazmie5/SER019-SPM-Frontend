@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-
+import img9 from'./Images/9.jpg';
+import img13 from'./Images/13.jpg';
+import img19 from'./Images/19.jpg';
+import img8 from'./Images/8.jpg';
+import img10 from'./Images/10.jpg';
 export default class UpdateReservation extends Component {
 
     constructor(props){
@@ -26,9 +29,11 @@ export default class UpdateReservation extends Component {
         })
         }
         
-        onSubmit = (e) =>{
+        onSubmit = async (e) =>{
         e.preventDefault();
-        const id = this.props.match.params.id;
+        const id = window.location.href.toString();
+        console.log(id.substr(40, id.length - 1));
+        const finalid = id.substr(40, id.length - 1);
         
         const {Customer_Name,Customer_NIC,Contact_Number,Check_In_Date,Check_Out_Date,Room_Type,No_Of_Members} = this.state;
         
@@ -41,11 +46,12 @@ export default class UpdateReservation extends Component {
             Room_Type:Room_Type,
             No_Of_Members:No_Of_Members
         }
-        console.log(data)
+        console.log("update data",data)
         
-        axios.put(`http://localhost:8080//travelgo/updateHotelReservation/${id}`,data).then((res) =>{
-        if(res.data.success){
-alert("Updated Successfully")
+        let res = await axios.patch(`http://localhost:8080/travelgo/packages/updateHotelReservation/${finalid}`,data);
+        console.log("res",res);
+        if(res.data.Customer_Name != null){
+alert("Reservation Updated Successfully")
 
         this.setState(
         {
@@ -59,13 +65,16 @@ alert("Updated Successfully")
         }
         )
         }
-        })
         }
-    componentDidMount(){
-        const id = this.props.match.params.id;
+        
+        getdata = async ()=>{
+        const id = window.location.href.toString();
+        console.log(id.substr(40, id.length - 1));
+        const finalid = id.substr(40, id.length - 1);
     
-        axios.get(`http://localhost:8080//travelgo/getAllHotelPackages/${id}`).then((res) =>{
-    if(res.data.success){
+       let res = await axios.get(`http://localhost:8080/travelgo/packages/getHotelReservation/${finalid}`);
+       console.log("res", res);
+       if(res.data.Customer_Name != null){
     this.setState({
         Customer_Name:res.data.Customer_Name,
         Customer_NIC:res.data.Customer_NIC,
@@ -75,14 +84,15 @@ alert("Updated Successfully")
         Room_Type:res.data.Room_Type,
         No_Of_Members:res.data.No_Of_Members
     });
-    console.log(this.state.post);
+    console.log(this.state);
   
     }
-        });
+        };
     
+        componentDidMount(){
+          this.getdata();
     
-    }
-    
+        }
 render() {
 return (
     <div>
@@ -99,10 +109,10 @@ return (
           <b><a className="nav-link" aria-current="page" href="/AddReservation"><h5>Add New Reservation</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/UpdateReservation/:id"><h5>Update Reservation Details</h5></a></b>
+          <b><a className="nav-link  active" href="/CusViewReservations"><h5>Update Reservation Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" href="/edit1/:id"><h5>Delete Reservation Details</h5></a></b>
+          <b><a className="nav-link" href="/CusViewReservations"><h5>Delete Reservation Details</h5></a></b>
         </li>
         
       </ul>
@@ -113,17 +123,20 @@ return (
   </nav>
 
 <div className="col-md-8 mt-4 mx-auto">
-    <h1 className="h3 mb-3 font-weight-normal" style={{color:'#FF0000'}}>...Update Reservation Details...</h1>
+<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
+
+<h4>Update Your Reservation Details</h4>
+</div>
     <form className="needs-validation" noValidate>
 
-    <table style={{width:"40%"}}>
+    <table style={{width:"100%",backgroundColor:'#d7dbdd'}}>
   <tr>
     <th>
     
     <center>
 <div className="form-group" style={{marginBottom:'15px',marginTop:'10px'}}>
-<label style={{marginBottom:'5px',marginRight:'5px'}}>Customer_Name</label>
-<input type="text"
+<label style={{marginBottom:'5px',marginRight:'40px'}}>Customer_Name</label>
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Customer_Name"
 placeholder="Customer_Name"
@@ -132,8 +145,8 @@ onChange={this.handleInputChange}/>
 </div> 
 
 <div className="form-group" style={{marginBottom:'15px'}}>   
-<label style={{marginBottom:'5px',marginRight:'5px'}}>Customer_NIC</label>
-<input type="text"
+<label style={{marginBottom:'5px',marginRight:'55px'}}>Customer_NIC</label>
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Customer_NIC"
 placeholder="Customer_NIC"
@@ -142,8 +155,8 @@ onChange={this.handleInputChange}/>
 </div>
     
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'5px'}}>Contact_Number</label>
-<input type="text"
+<label style={{marginBottom:'5px',marginRight:'35px'}}>Contact_Number</label>
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Contact_Number"
 placeholder="Contact_Number"
@@ -152,8 +165,8 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'5px',marginRight:'10px'}}>Check_In_Date</label>
-<input type="text"
+<label style={{marginBottom:'5px',marginRight:'55px'}}>Check_In_Date</label>
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Check_In_Date"
 placeholder="Check_In_Date"
@@ -162,8 +175,8 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'5px',marginRight:'50px'}}>Check_Out_Date</label>
-<input type="text"
+<label style={{marginBottom:'5px',marginRight:'40px'}}>Check_Out_Date</label>
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Check_Out_Date"
 placeholder="Check_Out_Date"
@@ -172,8 +185,8 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'5px',marginRight:'50px'}}>Room_Type</label>
-<input type="text"
+<label style={{marginBottom:'5px',marginRight:'75px'}}>Room_Type</label>
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Room_Type"
 placeholder="Room_Type"
@@ -182,8 +195,8 @@ onChange={this.handleInputChange}/>
 </div>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
-<label style={{marginBottom:'5px',marginRight:'50px'}}>No_Of_Members</label>
-<input type="text"
+<label style={{marginBottom:'5px',marginRight:'40px'}}>No_Of_Members</label>
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="No_Of_Members"
 placeholder="No_Of_Members"
@@ -191,31 +204,20 @@ value={this.state.No_Of_Members}
 onChange={this.handleInputChange}/>
 </div>
 
-<button className="btn btn-success" type="submit" style={{marginTop:'15px',marginBottom:'15px'}} onClick={this.onSubmit}>
+<button className="btn btn-success"><a href="/CusViewReservations" style={{textDecoration:'none',color:'white'}}>Back</a></button>
+<button className="btn btn-success" type="submit" style={{marginTop:'15px',marginBottom:'15px',marginLeft:'100px'}} onClick={this.onSubmit}>
     <i className="far fa-check-square"></i>
 &nbsp; Update Details
 </button></center>
 </th></tr></table>
     </form> 
-    </div>
-   
-    <h3 style={{color:'#FF0000'}}>...Delete Reservation From List...</h3>
-
-    <table style={{width:"27%"}}>
-  <tr>
-    <th>
-    
-    <center>
-<div className="form-group" style={{marginBottom:'15px',marginTop:'10px'}}>
-<label style={{marginBottom:'5px'}}>Customer_NIC</label>
-<input type="text"
-className="form-contorl"
-name="Customer_NIC"
-placeholder="Customer_NIC"
-value={this.state.Customer_NIC}
-onChange={this.handleInputChange}/></div>
-</center></th></tr></table>
-</div>
+    </div><center>
+    <img src={img9}style={{width:'200px',height:'150px'}}></img>
+    <img src={img13}style={{width:'200px',height:'150px'}}></img>
+<img src={img19}style={{width:'200px',height:'150px'}}></img>
+<img src={img8}style={{width:'200px',height:'150px'}}></img> 
+<img src={img10}style={{width:'200px',height:'150px'}}></img>  
+</center></div>
 
 )
 }

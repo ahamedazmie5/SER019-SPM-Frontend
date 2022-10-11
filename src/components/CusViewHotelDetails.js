@@ -63,10 +63,10 @@ return (
           <b><a className="nav-link" aria-current="page" href="/AddReservation"><h5>Add New Reservation</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/UpdateReservation/:id"><h5>Update Reservation Details</h5></a></b>
+          <b><a className="nav-link" href="/CusViewReservations"><h5>Update Reservation Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/edit1/:id"><h5>Delete Reservation Details</h5></a></b>
+          <b><a className="nav-link" href="/CusViewReservations"><h5>Delete Reservation Details</h5></a></b>
         </li>
         
       </ul>

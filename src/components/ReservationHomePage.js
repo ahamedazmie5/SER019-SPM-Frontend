@@ -80,11 +80,11 @@ return (
 <center>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-      <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px',marginLeft:'500px',marginTop:'60px',width:'200px',marginBottom:'60px'}}>
-          <b><a className="nav-link active" aria-current="page" href="/ViewHotelDetails"><h5>Login as admin</h5></a></b>
+      <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px',marginLeft:'480px',marginTop:'60px',width:'200px',marginBottom:'60px'}}>
+          <b><a className="nav-link active" aria-current="page" href="/ViewHotelDetails"><h5>View Hotel Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px',marginLeft:'150px',marginTop:'60px',width:'200px',marginBottom:'60px'}}>
-          <b><a className="nav-link active" aria-current="page" href="/CusViewHotelDetails"><h5>Login as customer</h5></a></b>
+          <b><a className="nav-link active" aria-current="page" href="/AddReservation"><h5>Add New Reservation</h5></a></b>
         </li>
         
         

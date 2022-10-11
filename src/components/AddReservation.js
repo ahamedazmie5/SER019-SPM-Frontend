@@ -80,10 +80,10 @@ return (
           <b><a className="nav-link active" aria-current="page" href="/AddReservation"><h5>Add New Reservation</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/UpdateReservation/:id"><h5>Update Reservation Details</h5></a></b>
+          <b><a className="nav-link" href="/CusViewReservations"><h5>Update Reservation Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/edit1/:id"><h5>Delete Reservation Details</h5></a></b>
+          <b><a className="nav-link" href="/CusViewReservations"><h5>Delete Reservation Details</h5></a></b>
         </li>
         
       </ul>
@@ -93,7 +93,10 @@ return (
     
 
 <div className="col-md-8 mt-4 mx-auto">
-    <h1 className="h3 mb-3 font-weight-normal" style={{color:'#FF0000'}}><b>Add Hotel Reservation</b></h1>
+<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
+
+<h4>Add New Reservation</h4>
+</div>
     <h4>Thank you for choosing us!</h4>
     <h6>...A perfect home in the perfect location...</h6>
     <form className="needs-validation" noValidate>
@@ -173,8 +176,8 @@ onChange={this.handleInputChange}/>
 </center>
 </th></tr></table>
 
-<button className="btn btn-success"><a href="/CusViewHotelDetails" style={{textDecoration:'none',color:'white',marginTop:'15px', marginRight:'10px',marginBottom:'30px'}}>Back</a></button>
 
+<button className="btn btn-success"><a href="/CusViewHotelDetails" style={{textDecoration:'none',color:'white',marginTop:'5px'}}>Back</a></button>
 <button className="btn btn-success" type="submit" style={{marginTop:'15px',marginLeft:'40px',marginBottom:'20px'}} onClick={this.onSubmit}>
     <i className="far fa-click-square"></i>
 &nbsp; Create Reservation
