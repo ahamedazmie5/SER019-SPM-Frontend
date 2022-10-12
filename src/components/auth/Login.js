@@ -26,13 +26,23 @@ const Login = () => {
 		console.log("data",formData)
 		let data = await axios.post("http://localhost:8080/travelgo/user/signin",formData);
 		console.log("data", data?.data);
+
 		if (data?.data?.userRole) {
 			localStorage.setItem("token", data?.data?.token);
 			localStorage.setItem("userRole", data?.data?.userRole);
 			localStorage.setItem("user", data?.data?.user);
-            
+            console.log("user");
 			navigate("/ViewHotelDetails");
+
+			if(data?.data?.userRole) {
+					localStorage.setItem("token", data?.data?.token);
+					localStorage.setItem("userRole", data?.data?.userRole);
+					localStorage.setItem("admin", data?.data?.admin);
+
+					navigate("/AdminHome");
+				}
 		}
+		
 		else {
 			Swal.fire({
 				icon: 'error',
