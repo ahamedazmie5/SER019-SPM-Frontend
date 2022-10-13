@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import e from "cors";
 import autoTable from "jspdf-autotable";
 import { jsPDF } from "jspdf";
 
 import Swal from "sweetalert2";
-import computing from "../assets/computing.jpg";
 import {
-  Badge,
   Card,
   CardHeader,
   CardTitle,
   CardBody,
-  Label,
-  Button,
   Row,
   Col,
   CardImg,
@@ -24,8 +19,6 @@ import {
 
 const AdminDisplay = () => {
   const [MarkingSchema, SetMarkingSchema] = useState([]);
-
-  const navigate = useNavigate();
 
   const getData = async () => {
     console.log("get data executed");
