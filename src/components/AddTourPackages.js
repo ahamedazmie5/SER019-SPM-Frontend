@@ -1,37 +1,38 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import computing from "../assets/computing.jpg"
+import computing from "../assets/computing.jpg";
 import FileInput from "../utils/FileInput";
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddTourPackages = () => {
-
   const navigate = useNavigate();
-    const [data, setData] = useState({
-        topic: "",
-        description: "",
-        title: "",
-        img: "",
-      });
-    
-      const handleChange = ({ currentTarget: input }) => {
-        setData({ ...data, [input.name]: input.value });
-      };
-    
-      const handleInputState = (name, value) => {
-        console.log("imageurl", value , name)
-        setData((prev) => ({ ...prev, [name]: value }));
-      };
+  const [data, setData] = useState({
+    topic: "",
+    description: "",
+    title: "",
+    img: "",
+  });
+
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleInputState = (name, value) => {
+    console.log("imageurl", value, name);
+    setData((prev) => ({ ...prev, [name]: value }));
+  };
   const changeOnClick = async (e) => {
     e.preventDefault();
-    console.log("data set ",data);
-    let res = await axios.post("http://localhost:8080/travelgo/createTourPackages", data);
+    console.log("data set ", data);
+    let res = await axios.post(
+      "http://localhost:8080/travelgo/createTourPackages",
+      data
+    );
     console.log(res);
 
     Swal.fire("Congrats", " Tour Pacakage added successfully", "success");
-navigate("/AdminDisplay")
-    
+    navigate("/AdminDisplay");
   };
 
   return (
@@ -46,7 +47,10 @@ navigate("/AdminDisplay")
             <div className="col-lg-6">
               <div className="card1 pb-5">
                 <div className="row px-3 justify-content-center mt-4 mb-5 border-line">
-                  <img src={computing} style={{width:"90%" , height:"90%"}}/>
+                  <img
+                    src={computing}
+                    style={{ width: "90%", height: "90%" }}
+                  />
                 </div>
               </div>
             </div>
@@ -97,8 +101,8 @@ navigate("/AdminDisplay")
                         value={data.title}
                       />
                     </div>
-                   
-                        <div class="form-floating mb-3">
+
+                    <div class="form-floating mb-3">
                       <label for="floatingPassword">Image</label>
                       <FileInput
                         name="img"
@@ -106,7 +110,7 @@ navigate("/AdminDisplay")
                         handleInputState={handleInputState}
                         type="image"
                         value={data.img}
-                        />
+                      />
                     </div>
                   </div>
 

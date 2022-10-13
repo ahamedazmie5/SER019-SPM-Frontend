@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { RegisterStudent } from "../services/AuthServices";
+import { registeradmin } from "../services/AuthServices";
 import Swal from "sweetalert2";
 import { ValidateSignUp } from "./Validation";
 
-const Register = () => {
+const RegisterAdmin = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -31,7 +31,7 @@ const Register = () => {
       if (password !== password2) {
         alert("Password do not match...", "danger");
       } else {
-        let data = await RegisterStudent(formData);
+        let data = await registeradmin(formData);
         console.log("data", data);
         if (data?.data?.userRole) {
           localStorage.setItem("token", data?.data?.token);
@@ -187,4 +187,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterAdmin;

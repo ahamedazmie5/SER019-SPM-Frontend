@@ -1,30 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Grid from '@mui/material/Grid';
-import { Link } from '@mui/material';
-import Collapse from '@mui/material/Collapse';
-
-import arch1 from '../assets/arch.jpeg';
-import background from '../assets/blogBackground.jpg';
-import ViewOneBlog from './viewOneBlog';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 
 const ViewBlogs = () => {
   const [title, setTitle] = useState();
-  const [subDescription, setsubDescription] = useState('');
-  const [description, setDescription] = useState('');
+  const [subDescription, setsubDescription] = useState("");
+  const [description, setDescription] = useState("");
   const [blogsArray, setBlogsArray] = useState([]);
   const [expanded, setExpanded] = React.useState(false);
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState("");
   const [id, setId] = useState();
 
   const handleExpandClick = () => {
@@ -49,9 +40,9 @@ const ViewBlogs = () => {
 
   //get all blogs
   const getAllBlogs = async () => {
-    console.log('view blogs');
+    console.log("view blogs");
     try {
-      const fetchData = await fetch('http://localhost:8080/blogs/getAllBlogs'); //fetch data
+      const fetchData = await fetch("http://localhost:8080/blogs/getAllBlogs"); //fetch data
       console.log(fetchData);
 
       const jsonData = await fetchData.json();
@@ -90,8 +81,8 @@ const ViewBlogs = () => {
   return (
     <>
       <div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          {' '}
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          {" "}
           <div>
             <input
               placeholder="Search here"
@@ -105,35 +96,35 @@ const ViewBlogs = () => {
           <div>
             <Typography
               style={{
-                textAlign: 'center',
-                fontFamily: 'Georgia, Serif',
-                fontWeight: 'bold',
+                textAlign: "center",
+                fontFamily: "Georgia, Serif",
+                fontWeight: "bold",
                 marginBottom: 14,
                 marginTop: 14,
                 fontSize: 53,
-                color: '#001a66',
+                color: "#001a66",
               }}
             >
-              Travel around the world{' '}
+              Travel around the world{" "}
             </Typography>
           </div>
           <div>
             <Typography
               style={{
-                textAlign: 'center',
-                fontFamily: 'Georgia, Serif',
-                fontWeight: 'bold',
+                textAlign: "center",
+                fontFamily: "Georgia, Serif",
+                fontWeight: "bold",
                 marginBottom: 14,
                 marginTop: 14,
                 fontSize: 53,
-                color: '#001a66',
+                color: "#001a66",
               }}
             >
               with knowledge
             </Typography>
           </div>
           <div>
-            <Typography style={{ color: '#FF9500', fontWeight: 'bold' }}>
+            <Typography style={{ color: "#FF9500", fontWeight: "bold" }}>
               READ BLOGS ABOUT THE PLACES YOU TRAVEL...
             </Typography>
           </div>
