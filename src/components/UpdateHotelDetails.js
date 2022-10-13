@@ -95,7 +95,7 @@ export default class UpdateHotelDetails extends Component {
     componentDidMount(){
       this.getdata();
     }
-   
+  //Admin update hotel details 
 render() {
 return (
     <div>

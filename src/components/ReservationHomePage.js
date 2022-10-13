@@ -60,7 +60,7 @@ axios.post("http://localhost:8080/travelgo/packages/createHotelReservation",data
 }
 })
 }
-
+//Reservation Home Page
 render() {
 return (
     <div>

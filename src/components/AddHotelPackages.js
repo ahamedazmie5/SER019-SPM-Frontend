@@ -43,6 +43,17 @@ const data ={
     Location:Location
 }
 console.log(data)
+if(Hotel_ID==""||Hotel_Name==""||Single_Room_Price==""||Double_Room_Price==""||Luxury_Room_Price==""||Hotel_Contact==""||Location=="")
+{
+  alert("Enter all details")
+  return 0;
+}
+else if(Hotel_ID.length<3 || Hotel_ID.length>3)
+{
+  alert("Hotel ID cannot be greater than or less than 3 characters")
+  return 0;
+}
+else
 
 axios.post("http://localhost:8080/travelgo/packages/createHotelPackages",data).then((res) =>{
   console.log("response",res)

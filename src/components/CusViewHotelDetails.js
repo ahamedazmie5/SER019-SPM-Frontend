@@ -48,7 +48,7 @@ handleSearchArea = async (e) =>{
 })
    
 }
-
+//customer view hotel details
 render() {
 return (
 <div>

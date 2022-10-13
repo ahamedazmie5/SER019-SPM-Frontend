@@ -35,7 +35,7 @@ export default class HotelPackageDetails extends Component {
 
 render() {
 
-
+//View hotel details by ID
 return (
     <div >
 

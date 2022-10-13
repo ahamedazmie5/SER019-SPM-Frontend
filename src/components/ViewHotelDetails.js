@@ -48,7 +48,7 @@ handleSearchArea = async (e) =>{
 })
    
 }
-
+//Admin view hotel details
 render() {
 return (
 <div>

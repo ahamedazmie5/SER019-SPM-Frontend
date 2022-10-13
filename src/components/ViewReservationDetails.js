@@ -52,7 +52,7 @@ handleSearchArea = async (e) =>{
 
 }
 
-
+//Admin View reservation details
 render() {
 return (
 <div>

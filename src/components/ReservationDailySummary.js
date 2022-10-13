@@ -51,7 +51,7 @@ export default class ReservationDailySummary extends Component {
       this.filterData(res.data, searchKey)
     })
   }
-
+//Generate reservation summary report
   render() {
     return (
 

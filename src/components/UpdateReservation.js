@@ -93,6 +93,7 @@ alert("Reservation Updated Successfully")
           this.getdata();
     
         }
+        //Customer update reservation details
 render() {
 return (
     <div>

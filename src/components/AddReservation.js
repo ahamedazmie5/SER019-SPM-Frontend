@@ -44,6 +44,17 @@ const data ={
     No_Of_Members:No_Of_Members
 }
 console.log(data)
+if(Customer_Name==""||Customer_NIC==""||Contact_Number==""||Check_In_Date==""||Check_Out_Date==""||Room_Type==""||No_Of_Members=="")
+{
+  alert("Enter all details")
+  return 0;
+}
+else if(Contact_Number.length<10 || Contact_Number.length>10)
+{
+  alert("Contact Number cannot be greater than or less than 10 numbers")
+  return 0;
+}
+else
 
 axios.post("http://localhost:8080/travelgo/packages/createHotelReservation",data).then((res) =>{
   console.log("response",res)
