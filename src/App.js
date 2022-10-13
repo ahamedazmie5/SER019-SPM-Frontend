@@ -1,17 +1,16 @@
-
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {  useEffect, useState } from 'react';
-import AddTourPackages from "./components/AddTourPackages";
-import Display from "./components/Display";
-import AddHotelPackages from "./components/AddHotelPackages";
-import ViewHotelDetails from "./components/ViewHotelDetails";
-import UpdateHotelDetails from "./components/UpdateHotelDetails";
-import AddReservation from "./components/AddReservation";
-import UpdateReservation from "./components/UpdateReservation";
-import ViewReservationDetails from "./components/ViewReservationDetails";
-import ReservationDailySummary from "./components/ReservationDailySummary";
-import CusViewHotelDetails from "./components/CusViewHotelDetails";
-import ReservationHomePage from "./components/ReservationHomePage";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import AddTourPackages from './components/AddTourPackages';
+import Display from './components/Display';
+import AddHotelPackages from './components/AddHotelPackages';
+import ViewHotelDetails from './components/ViewHotelDetails';
+import UpdateHotelDetails from './components/UpdateHotelDetails';
+import AddReservation from './components/AddReservation';
+import UpdateReservation from './components/UpdateReservation';
+import ViewReservationDetails from './components/ViewReservationDetails';
+import ReservationDailySummary from './components/ReservationDailySummary';
+import CusViewHotelDetails from './components/CusViewHotelDetails';
+import ReservationHomePage from './components/ReservationHomePage';
 import AddAdmin from './components/auth/AdminRegister';
 
 import Navbar from './components/layout/Navbar';
@@ -21,28 +20,46 @@ import Landing from './components/layout/Landing';
 import ViewBlogs from './components/viewBlogs';
 import WriteBlog from './components/writeBlog';
 import ViewOneBlog from './components/viewOneBlog';
-
+import EditBlog from './components/editBogs';
+import AdminReadBlogs from './components/adminReadBlogs';
+import BlogReport from './components/BlogReport';
 
 function App() {
   let isauth = localStorage.getItem('user');
   return (
     <div>
-
-        <Router>
+      <Router>
         <Navbar />
-          <Routes>
-
-          <Route  path="/AddTourPackages" element={<AddTourPackages />} />
-          <Route  path="/Display" element={<Display />} />
-          <Route  path="/AddHotelPackages" element={<AddHotelPackages />} />
-          <Route  path="/ViewHotelDetails" element={<ViewHotelDetails />} />
-          <Route  path="/UpdateHotelDetails/:id" element={<UpdateHotelDetails />} />
-          <Route  path="/AddReservation" element={<AddReservation />} />
-          <Route  path="/UpdateReservation/:id" element={<UpdateReservation />} />
-          <Route  path="/ViewReservationDetails" element={<ViewReservationDetails />} />
-          <Route  path="/ReservationDailySummary" element={<ReservationDailySummary />} />
-          <Route  path="/CusViewHotelDetails" element={<CusViewHotelDetails />} />
-          <Route  path="/ReservationHomePage" element={<ReservationHomePage />} />
+        <Routes>
+          <Route path="/AddTourPackages" element={<AddTourPackages />} />
+          <Route path="/Display" element={<Display />} />
+          <Route path="/AddHotelPackages" element={<AddHotelPackages />} />
+          <Route path="/ViewHotelDetails" element={<ViewHotelDetails />} />
+          <Route
+            path="/UpdateHotelDetails/:id"
+            element={<UpdateHotelDetails />}
+          />
+          <Route path="/AddReservation" element={<AddReservation />} />
+          <Route
+            path="/UpdateReservation/:id"
+            element={<UpdateReservation />}
+          />
+          <Route
+            path="/ViewReservationDetails"
+            element={<ViewReservationDetails />}
+          />
+          <Route
+            path="/ReservationDailySummary"
+            element={<ReservationDailySummary />}
+          />
+          <Route
+            path="/CusViewHotelDetails"
+            element={<CusViewHotelDetails />}
+          />
+          <Route
+            path="/ReservationHomePage"
+            element={<ReservationHomePage />}
+          />
           <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -63,16 +80,17 @@ function App() {
           <Route exact path="/viewblogs" element={<ViewBlogs />} />
           <Route path="/insertBlog" element={<WriteBlog />} />
           <Route path="/OneBlog/:id" element={<ViewOneBlog />} />
+          <Route path="/EditBlog/:id" element={<EditBlog />} />
+          <Route path="/adminReadBlog" element={<AdminReadBlogs />} />
+          <Route path="/blogReport" element={<BlogReport />} />
+        </Routes>
+      </Router>
+    </div>
 
-          </Routes>
-          </Router>
-          </div>
-
-
-      // <Router>
-        // {/* <Navbar /> */}
-        // <Routes>
-          /* <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
+    // <Router>
+    // {/* <Navbar /> */}
+    // <Routes>
+    /* <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
@@ -95,7 +113,6 @@ function App() {
         {/* </Routes>
       </Router> */
     /* </div> */
-
   );
 }
 

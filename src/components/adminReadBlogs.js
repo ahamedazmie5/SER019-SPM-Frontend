@@ -71,6 +71,16 @@ const AdminReadBlogs = () => {
     }
   };
 
+  //navigate to add blog page
+  const generateReport = async (e) => {
+    try {
+      navigate('/blogReport');
+      //}
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   //get all blogs
   const getAllBlogs = async () => {
     console.log('view blogs');
@@ -117,6 +127,9 @@ const AdminReadBlogs = () => {
               border: '1px solid purple',
               marginLeft: 'auto',
               marginRight: 11,
+            }}
+            onClick={(e) => {
+              generateReport(e);
             }}
           >
             Generate Report
