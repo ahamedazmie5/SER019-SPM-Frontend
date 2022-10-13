@@ -4,6 +4,8 @@
 import { Link , useNavigate } from "react-router-dom";
 import axios from "axios";
 import e from "cors";
+import autoTable from 'jspdf-autotable'
+import { jsPDF } from "jspdf";
 import Swal from "sweetalert2";
 import computing from "../assets/computing.jpg";
 import HomeBanner2 from "../assets/HomeBanner2.png"
@@ -45,6 +47,10 @@ const  Display  = () => {
     getData();
   }, []);
 
+ 
+
+
+
   return (
     <div style={{ textAlign: "center" }}>
            
@@ -65,7 +71,7 @@ const  Display  = () => {
       <center>
         <h1><b>Tour Packages</b></h1><br></br>
       </center>
-      <Container>
+      <Container  >
         <Row xs={4}>
           {MarkingSchema?.map((tourpackage) => {
             return (
