@@ -30,6 +30,7 @@ const FileInput = ({ name, label, value, type, handleInputState, ...rest }) => {
 			() => {
 				getDownloadURL(uploadTask.snapshot.ref).then((url) => {
 					handleInputState(name, url);
+                    console.log("firebase url", name , url);
 				});
 			}
 		);

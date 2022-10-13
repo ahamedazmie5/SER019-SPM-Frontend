@@ -3,8 +3,11 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import computing from "../assets/computing.jpg"
 import FileInput from "../utils/FileInput";
+import { Link , useNavigate } from "react-router-dom";
 
 const AddTourPackages = () => {
+
+  const navigate = useNavigate();
     const [data, setData] = useState({
         topic: "",
         description: "",
@@ -17,14 +20,20 @@ const AddTourPackages = () => {
       };
     
       const handleInputState = (name, value) => {
+        console.log("imageurl", value , name)
         setData((prev) => ({ ...prev, [name]: value }));
       };
-  const changeOnClick = (f) => {
-
-    axios.post("http://localhost:8080/travelgo/createTourPackages", data);
+  const changeOnClick = async (e) => {
+    e.preventDefault();
+    console.log("data set ",data);
+    let res = await axios.post("http://localhost:8080/travelgo/createTourPackages", data);
+    console.log(res);
 
     Swal.fire("Congrats", " Tour Pacakage added successfully", "success");
+navigate("/AdminDisplay")
+    
   };
+
   return (
     <div style={{ marginTop: "30px" }}>
       <br />
@@ -76,14 +85,14 @@ const AddTourPackages = () => {
                       ></textarea>
                     </div>
                     <div class="form-floating mb-3">
-                      <label for="floatingPassword">Title</label>
+                      <label for="floatingPassword">Price</label>
                       <input
                         class="form-control"
                         id="floatingPassword"
                         onChange={handleChange}
                         required
                         type="text"
-                        placeholder="Title"
+                        placeholder="Price"
                         name="title"
                         value={data.title}
                       />

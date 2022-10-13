@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import AddTourPackages from './components/AddTourPackages';
@@ -11,8 +12,9 @@ import ViewReservationDetails from './components/ViewReservationDetails';
 import ReservationDailySummary from './components/ReservationDailySummary';
 import CusViewHotelDetails from './components/CusViewHotelDetails';
 import ReservationHomePage from './components/ReservationHomePage';
-import AddAdmin from './components/auth/AdminRegister';
 
+import AddAdmin from './components/auth/AdminRegister';
+import UpdateTourPacakage from "./components/UpdateTourPacakage";
 import Navbar from './components/layout/Navbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -30,6 +32,7 @@ function App() {
     <div>
       <Router>
         <Navbar />
+
         <Routes>
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
           <Route path="/Display" element={<Display />} />
@@ -60,12 +63,15 @@ function App() {
             path="/ReservationHomePage"
             element={<ReservationHomePage />}
           />
+
+
           <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
           <Route path="/AddAdmin" element={<AddAdmin />} />
           <Route path="/Display" element={<Display />} />
+          <Route path="/AdminDisplay" element={<AdminDisplay />} />
           <Route path="/AddHotelPackages" element={<AddHotelPackages />} />
           <Route path="/ViewHotelDetails" element={<ViewHotelDetails />} />
           <Route
@@ -87,10 +93,19 @@ function App() {
       </Router>
     </div>
 
-    // <Router>
-    // {/* <Navbar /> */}
-    // <Routes>
-    /* <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
+
+          <Route path="/UpdateTourPackages/:id" element={<UpdateTourPacakage />} />
+
+
+          </Routes>
+          </Router>
+          </div>
+
+
+      // <Router>
+        // {/* <Navbar /> */}
+        // <Routes>
+          /* <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
