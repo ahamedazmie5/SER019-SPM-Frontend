@@ -3,6 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {  useEffect, useState } from 'react';
 import AddTourPackages from "./components/AddTourPackages";
 import Display from "./components/Display";
+import Allusers from "./components/AllUsers";
+
+import Navbar from "./components/layout/Navbar";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Landing from "./components/layout/Landing";
 import AdminDisplay from "./components/AdminDisplay";
 import ViewTourPackage from "./components/ViewTourPackage";
 import AddHotelPackages from "./components/AddHotelPackages";
@@ -34,6 +40,12 @@ function App() {
         <Navbar />
           <Routes>
 
+          <Route exact path="/" element={isauth ? <ViewHotelDetails/> : <Landing/>} />
+          <Route  path="/login" element={<Login />} />
+          <Route  path="/register" element={<Register />} />
+
+
+
           <Route  path="/AddTourPackages" element={<AddTourPackages />} />
           <Route  path="/Display" element={<Display />} />
           <Route  path="/AdminDisplay" element={<AdminDisplay />} />
@@ -43,6 +55,9 @@ function App() {
           <Route  path="/UpdateHotelDetails/:id" element={<UpdateHotelDetails />} />
           <Route  path="/AddReservation" element={<AddReservation />} />
           <Route  path="/UpdateReservation/:id" element={<UpdateReservation />} />
+
+          <Route  path="/AllUsers" element={<Allusers />} />
+
           <Route  path="/ViewReservationDetails" element={<ViewReservationDetails />} />
           <Route  path="/ReservationDailySummary" element={<ReservationDailySummary />} />
           <Route  path="/CusViewHotelDetails" element={<CusViewHotelDetails />} />
@@ -70,6 +85,7 @@ function App() {
           <Route path="/OneBlog/:id" element={<ViewOneBlog />} />
 
           <Route path="/UpdateTourPackages/:id" element={<UpdateTourPacakage />} />
+
 
 
           </Routes>

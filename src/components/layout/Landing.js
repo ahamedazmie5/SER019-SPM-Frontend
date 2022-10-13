@@ -10,9 +10,9 @@ const Landing = () => {
 		<section className="landing">
 			<div className="dark-overlay">
 				<div className="landing-inner">
-
+				<center>
 					<div className = "home" >
-					<b>Research Project Management Tool</b>
+					<b>Travel Go </b>
 					</div>
 					
 					<br />
@@ -25,7 +25,9 @@ const Landing = () => {
 							Login
 						</Link>
 					</div>
+					</center>
 				</div>
+				
 			</div>
 		</section>
 	);

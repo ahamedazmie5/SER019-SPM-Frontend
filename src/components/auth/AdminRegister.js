@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { ValidateSignUp } from "./Validation";
+import img from "../../assets/admin.png" 
 
 const Register = () => {
 
@@ -66,13 +67,25 @@ const Register = () => {
 
 
 	return (
-		<div>
-			<center>
-				<br></br>
-			<h1 className="heading">Sign Up</h1>
-			<p className="lead">
-				<i className="fas fa-user"></i> Create Your Account
-			</p>
+        <div style={{ marginTop: "30px" }}>
+        <br />
+            
+        <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+        <div className="card card0 border-0">
+
+          <div className="row d-flex">
+            <div className="col-lg-6">
+              <div className="card1 pb-5">
+                <div className="row px-3 justify-content-center mt-4 mb-5 border-line">
+                  <img src={img} style={{width:"80%" , height:"80%"}}/>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-6">
+              <div className="card2 card border-0 px-4 py-5">
+			<h1 className="heading">Add Addmin</h1>
+			
 			<br />
 			<form className="form" onSubmit={(e) => onSubmit(e)}>
 				<div className="form-group">
@@ -133,11 +146,13 @@ const Register = () => {
 				</div>
 				<input type="submit" className="btn btn-primary" value="Register" />
 			</form>
-			<p className="link">
-				Already have an account? <Link to="/login">Sign In</Link>
-				<br></br>
-			</p>
-			</center>
+			
+			
+			</div>
+            </div>
+            </div>
+            </div>
+            </div>
 		</div>
 	);
 };
