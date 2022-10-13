@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useNavigate } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
@@ -10,12 +11,12 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Grid from '@mui/material/Grid';
+import { Link } from '@mui/material';
 import Collapse from '@mui/material/Collapse';
 
 import arch1 from '../assets/arch.jpeg';
 import background from '../assets/blogBackground.jpg';
 import ViewOneBlog from './viewOneBlog';
-import { Link } from '@mui/material';
 
 const ViewBlogs = () => {
   const [title, setTitle] = useState();
@@ -23,6 +24,7 @@ const ViewBlogs = () => {
   const [description, setDescription] = useState('');
   const [blogsArray, setBlogsArray] = useState([]);
   const [expanded, setExpanded] = React.useState(false);
+  const [filter, setFilter] = useState('');
   const [id, setId] = useState();
 
   const handleExpandClick = () => {
@@ -38,23 +40,8 @@ const ViewBlogs = () => {
   //get one blog
   const readMore = async (e, id) => {
     try {
-      console.log(id, 'idddd');
-      const fetchData = await fetch(
-        `http://localhost:8080/blogs/getBlogById/${id}`
-      ); //fetch data
-
-      const jsonData = await fetchData.json();
-      console.log(jsonData);
-
-      if (jsonData) {
-        <ViewOneBlog
-          title={title}
-          subDescription={subDescription}
-          description={description}
-        />;
-
-        navigate('/OneBlog');
-      }
+      navigate(`/OneBlog/${id}`);
+      //}
     } catch (error) {
       console.error(error.message);
     }
@@ -86,40 +73,81 @@ const ViewBlogs = () => {
     }
   };
 
+  const serchCgange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  //fiilter
+  let filterSearch = blogsArray.filter((items) => {
+    return Object.keys(items).some((key) =>
+      items[key]
+        .toString()
+        .toLowerCase()
+        .includes(filter.toString().toLowerCase())
+    );
+  });
+
   return (
     <>
       <div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          {' '}
+          <div>
+            <input
+              placeholder="Search here"
+              value={filter}
+              onChange={serchCgange.bind(this)}
+            ></input>
+          </div>
+        </div>
+
         <div>
           <div>
-            <Typography style={{ color: '#FF9500', fontWeight: 'bold' }}>
-              READ BLOGS ABOUT THE PLACES YOU TRAVEL...
-            </Typography>
-          </div>
-          <div>
             <Typography
-              style={{ color: 'black', fontWeight: 'bold', fontSize: 33 }}
+              style={{
+                textAlign: 'center',
+                fontFamily: 'Georgia, Serif',
+                fontWeight: 'bold',
+                marginBottom: 14,
+                marginTop: 14,
+                fontSize: 53,
+                color: '#001a66',
+              }}
             >
               Travel around the world{' '}
             </Typography>
           </div>
           <div>
             <Typography
-              style={{ color: 'black', fontWeight: 'bold', fontSize: 33 }}
+              style={{
+                textAlign: 'center',
+                fontFamily: 'Georgia, Serif',
+                fontWeight: 'bold',
+                marginBottom: 14,
+                marginTop: 14,
+                fontSize: 53,
+                color: '#001a66',
+              }}
             >
               with knowledge
+            </Typography>
+          </div>
+          <div>
+            <Typography style={{ color: '#FF9500', fontWeight: 'bold' }}>
+              READ BLOGS ABOUT THE PLACES YOU TRAVEL...
             </Typography>
           </div>
         </div>
         <br />
         <br />
 
-        <div>
+        {/* <div>
           <img
             src={arch1}
             alt="background"
-            style={{ width: '100%', height: 500, borderRadius: 5 }}
+            style={{ width: '100%', height: 300, borderRadius: 5 }}
           />
-        </div>
+        </div> */}
         <br />
 
         <Box sx={{ flexGrow: 1 }}>
@@ -128,7 +156,7 @@ const ViewBlogs = () => {
             spacing={{ xs: 2, md: 3 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
-            {blogsArray.map((cards, index) => (
+            {filterSearch.map((cards, index) => (
               <Grid item xs={2} sm={4} md={4} key={index}>
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia

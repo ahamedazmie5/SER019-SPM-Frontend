@@ -5,7 +5,22 @@ import { Link , useNavigate } from "react-router-dom";
 import axios from "axios";
 import e from "cors";
 import Swal from "sweetalert2";
-
+import computing from "../assets/computing.jpg";
+import HomeBanner2 from "../assets/HomeBanner2.png"
+import {
+  Badge,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardBody,
+  Label,
+  Button,
+  Row,
+  Col,
+  CardImg,
+  Container,
+  CardText,
+} from "reactstrap";
 
 
 const  Display  = () => {
@@ -34,39 +49,61 @@ const  Display  = () => {
     <div style={{ textAlign: "center" }}>
            
       <div style={{marginTop:"30px"}}>
-          <center><h1>Welcome to  Research Project Management Tool system</h1></center> 
+          
         </div>
         <br/>
         
+        <img
+        src={HomeBanner2}
+        alt="HomeBanner2"
+        style={{ width: '100%', height: '100%', borderRadius: 5 }}
+      />
 
-
+      
+ 
 
       <center>
-        <h1>All Marking Schemes</h1>
+        <h1><b>Tour Packages</b></h1><br></br>
       </center>
-      <table className="table">
-        <thead>
-          <tr className="text-info bg-dark">
-            <th scopse="col">#</th>
-            <th scopse="col">Assiginment Name</th>
-            <th scopse="col">Allocated Full Marks</th>
-            <th scopse="col">Discription </th>
-      
-          </tr>
-        </thead>
-        <tbody>
-          {MarkingSchema.map((MarkSchema, index) => (
-            <tr key={index}>
-              <th scope="row">{index + 1}</th>
-              <td>{MarkSchema.topic}</td>
-              <td>{MarkSchema.description}</td>
-              <td>{MarkSchema.title}</td>
-    
-              
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Container>
+        <Row xs={4}>
+          {MarkingSchema?.map((tourpackage) => {
+            return (
+              <Col style={{ padding: "10px"  , height:"auto"}}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle style={{ color: "black", fontSize: "25px" }}>
+                      <center>
+                        <b>{tourpackage.topic}</b>
+                      </center>
+                    </CardTitle>
+                    <center>
+                      <CardImg
+                        //width="50%"
+                        src={tourpackage?.img}
+                        alt="computing Img"
+                        style={{ width: "100%" , height:"100%" }}
+                      />
+                    </center>
+                  </CardHeader>
+                  <CardBody>
+                    {/* <CardText> description -: {tourpackage.title}</CardText> */}
+                    <CardText style={{ color: "red"}}><b>Price :- &nbsp;LKR {tourpackage.title}</b></CardText>
+
+                    <Button
+                      style={{ marginRight: "20px" ,  width:"100%" }}
+                      className="btn btn-success"
+                      href={`/ViewTourPackage/${tourpackage._id}`}
+                    >
+                      View Pacakage
+                    </Button>
+                  </CardBody>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>    
     </div>
   );
 };
