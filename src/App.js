@@ -3,12 +3,11 @@ import { useEffect, useState } from "react";
 import AddTourPackages from "./components/AddTourPackages";
 import Display from "./components/Display";
 import Allusers from "./components/AllUsers";
-
-
+import Footer from "./components/auth/Footer";
 import Navbar from './components/layout/Navbar';
-import Login from "./components/Auth/Login";
-import Register from "./components/Auth/Register";
-import RegisterAdmin from "./components/Auth/RegisterAdmin";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import RegisterAdmin from "./components/auth/RegisterAdmin";
 import Landing from './components/layout/Landing';
 import AdminDisplay from './components/AdminDisplay';
 import AdminHome from './components/AdminHome';
@@ -34,6 +33,7 @@ import AdminReadBlogs from './components/adminReadBlogs';
 import EditBlog from './components/editBogs';
 import UserReport from './components/UserReport'
 import BlogReport from './components/blogReport';
+
 
 
 let isauth = localStorage.getItem('user');
