@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Box from '@mui/material/Box';
@@ -12,6 +11,18 @@ import { IconButton } from '@mui/material';
 import { FormControl, TextField, Typography, Button } from '@mui/material';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { async } from '@firebase/util';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardBody,
+  // Button,
+  Row,
+  Col,
+  CardImg,
+  Container,
+  CardText,
+} from 'reactstrap';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   backgroundColor: purple[500],
@@ -185,7 +196,7 @@ const AdminReadBlogs = () => {
             with knowledge
           </Typography>
         </div>
-        <div>
+        <div style={{ marginLeft: 40 }}>
           <Typography style={{ color: '#FF9500', fontWeight: 'bold' }}>
             READ BLOGS ABOUT THE PLACES YOU TRAVEL...
           </Typography>
@@ -194,44 +205,13 @@ const AdminReadBlogs = () => {
       <br />
       <br />
 
-      <Box sx={{ flexGrow: 1 }}>
+      {/* <Box sx={{ flexGrow: 1 }}>
         <Grid
           container
           spacing={{ xs: 2, md: 10 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {/* {filterSearch.map((cards, index) => (
-              <Grid item xs={2} sm={4} md={4} key={index}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
-                    component="img"
-                    alt="Nine arch"
-                    height="140"
-                    //image={image}
-                    image={cards.image}
-                  />
-
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {cards.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {cards.subDescription}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      onClick={(e) => {
-                        readMore(e, cards.id);
-                      }}
-                    >
-                      Read More
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))} */}
+         
           {blogsArray.map((cards, index) => (
             <Grid item xs={2} sm={4} md={4} key={index}>
               <div style={{ width: 300, maxHeight: 100 }}>
@@ -271,7 +251,62 @@ const AdminReadBlogs = () => {
             </Grid>
           ))}
         </Grid>
-      </Box>
+      </Box> */}
+      <Container>
+        <Row xs={4}>
+          {blogsArray?.map((blogsArray, index) => {
+            return (
+              <Col style={{ padding: '10px', height: 'auto' }} key={index}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle style={{ color: 'black', fontSize: '25px' }}>
+                      <center>
+                        <b>{blogsArray.title}</b>
+                      </center>
+                    </CardTitle>
+                    <center>
+                      <CardImg
+                        //width="50%"
+                        src={blogsArray?.image}
+                        alt="computing Img"
+                        style={{ width: '100%', height: '100%' }}
+                      />
+                    </center>
+                  </CardHeader>
+                  <CardBody>
+                    {/* <CardText> description -: {blogsArray.title}</CardText> */}
+                    <CardText
+                      style={{ color: 'black', alignContent: 'justify' }}
+                    >
+                      <i>{blogsArray.subDescription}</i>
+                    </CardText>
+                    <div
+                      style={{ display: 'flex', justifyContent: 'flex-end' }}
+                    >
+                      {' '}
+                      <IconButton
+                        style={{ marginLeft: 'auto' }}
+                        onClick={(e) => {
+                          editBlog(e, blogsArray.id);
+                        }}
+                      >
+                        <EditIcon style={{ marginLeft: 'auto' }} />
+                      </IconButton>
+                      <IconButton
+                        onClick={(e) => {
+                          deleteBlog(e, blogsArray.id);
+                        }}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
     </div>
   );
 };

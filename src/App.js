@@ -1,30 +1,29 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import AddTourPackages from "./components/AddTourPackages";
-import Display from "./components/Display";
-import Allusers from "./components/AllUsers";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import AddTourPackages from './components/AddTourPackages';
+import Display from './components/Display';
+import Allusers from './components/AllUsers';
 
-import Navbar from "./components/layout/Navbar";
-import Login from "./components/Auth/Login";
-import Register from "./components/Auth/Register";
-import RegisterAdmin from "./components/Auth/RegisterAdmin";
-import Landing from "./components/layout/Landing";
-import Footer from "./components/Auth/Footer";
-import AdminDisplay from "./components/AdminDisplay";
-import AdminHome from "./components/AdminHome";
-import CusViewReservations from "./components/CusViewReservations";
-import ViewTourPackage from "./components/ViewTourPackage";
-import AddHotelPackages from "./components/AddHotelPackages";
-import ViewHotelDetails from "./components/ViewHotelDetails";
-import UpdateHotelDetails from "./components/UpdateHotelDetails";
-import AddReservation from "./components/AddReservation";
-import UpdateReservation from "./components/UpdateReservation";
-import ViewReservationDetails from "./components/ViewReservationDetails";
-import ReservationDailySummary from "./components/ReservationDailySummary";
-import CusViewHotelDetails from "./components/CusViewHotelDetails";
-import ReservationHomePage from "./components/ReservationHomePage";
-import HotelPackageDetails from "./components/HotelPackageDetails";
-
+import Navbar from './components/layout/Navbar';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import RegisterAdmin from './components/Auth/RegisterAdmin';
+import Landing from './components/layout/Landing';
+import Footer from './components/Auth/Footer';
+import AdminDisplay from './components/AdminDisplay';
+import AdminHome from './components/AdminHome';
+import CusViewReservations from './components/CusViewReservations';
+import ViewTourPackage from './components/ViewTourPackage';
+import AddHotelPackages from './components/AddHotelPackages';
+import ViewHotelDetails from './components/ViewHotelDetails';
+import UpdateHotelDetails from './components/UpdateHotelDetails';
+import AddReservation from './components/AddReservation';
+import UpdateReservation from './components/UpdateReservation';
+import ViewReservationDetails from './components/ViewReservationDetails';
+import ReservationDailySummary from './components/ReservationDailySummary';
+import CusViewHotelDetails from './components/CusViewHotelDetails';
+import ReservationHomePage from './components/ReservationHomePage';
+import HotelPackageDetails from './components/HotelPackageDetails';
 
 import UpdateTourPacakage from './components/UpdateTourPacakage';
 import ViewBlogs from './components/viewBlogs';
@@ -36,12 +35,11 @@ import BlogReport from './components/blogReport';
 
 let isauth = localStorage.getItem('user');
 
-
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('');
 
   useEffect(() => {
-    setUser(localStorage.getItem("userRole"));
+    setUser(localStorage.getItem('userRole'));
   }, []);
 
   return (
@@ -128,7 +126,7 @@ function App() {
           />
         </Routes>
         <br></br>
-        <div style={{ marginTop: "20%" }}>
+        <div style={{ marginTop: '20%' }}>
           <Footer />
         </div>
       </Router>

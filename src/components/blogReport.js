@@ -77,7 +77,7 @@ const BlogReport = () => {
           table="table-to-xls"
           filename="Full Blog Details"
           sheet="tablexls"
-          buttonText={<i class="fa-solid fa-print"> Download Report</i>}
+          buttonText={<i class="fa-solid fa-print">Download Report</i>}
         />
       </div>
 
@@ -112,9 +112,9 @@ const BlogReport = () => {
                 <TableCell component="th" scope="row">
                   {index}
                 </TableCell>
-                <TableCell align="right">{row?.title}</TableCell>
-                <TableCell align="right">{row?.subDescription}</TableCell>
-                <TableCell align="right">{row?.image}</TableCell>
+                <TableCell align="center">{row?.title}</TableCell>
+                <TableCell align="center">{row?.subDescription}</TableCell>
+                <TableCell align="center">{row?.image}</TableCell>
               </TableRow>
             ))}
           </TableBody>
