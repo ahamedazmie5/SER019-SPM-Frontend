@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/logo.jpeg";
+import Login from "../../assets/logo1.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,107 +17,105 @@ const Navbar = () => {
   return (
     <div>
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">
+            <img src={Login} alt="" width="280" height="50" />
+          </a>
+
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
-              <img
-                alt="logo"
-                src={logo}
-                style={{ width: "30%", height: "30%" }}
-              />
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <></>
+
             <button
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNavAltMarkup"
               aria-controls="navbarNavAltMarkup"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                {/* <a style={{ display: userRole != "user" || userRole != "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" aria-current="page" href="/creategrp">Blogs</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a style={{ display: userRole != "user" || userRole != "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" aria-current="page" href="/creategrp">Gallery</a> */}
-                {/* {User pages} */}
-                <a
-                  style={{
-                    display: userRole === "customer" ? "flex" : "none",
-                    textDecoration: "none",
-                  }}
-                  className="sidebarListItem"
-                  aria-current="page"
-                  href="/creategrp"
-                >
-                  Bloges
-                </a>
-                &nbsp;&nbsp;
-                <a
-                  style={{
-                    display: userRole === "customer" ? "flex" : "none",
-                    textDecoration: "none",
-                  }}
-                  className="sidebarListItem"
-                  href="/topicreg"
-                  aria-current="page"
-                >
-                  Hotels
-                </a>
-                &nbsp;&nbsp;
-                <a
-                  style={{
-                    display: userRole === "customer" ? "flex" : "none",
-                    textDecoration: "none",
-                  }}
-                  className="sidebarListItem"
-                  aria-current="page"
-                  href="/group-chat"
-                >
-                  Gallery
-                </a>
-                &nbsp;&nbsp;
-                {/*  admin Pages */}
-                <a
-                  style={{
-                    display: userRole === "admin" ? "flex" : "none",
-                    textDecoration: "none",
-                  }}
-                  className="sidebarListItem"
-                  href="/RegisterAdmin"
-                  aria-current="page"
-                >
-                  Add Admnin
-                </a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a
-                  style={{
-                    display: userRole === "admin" ? "flex" : "none",
-                    textDecoration: "none",
-                  }}
-                  className="sidebarListItem"
-                  href="/AllUsers"
-                  aria-current="page"
-                >
-                  View All Users
-                </a>
-                &nbsp;&nbsp;
-                {/* <a style={{ display: userRole === "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/HandleStaff" aria-current="page">Handle Staff</a>&nbsp;&nbsp; */}
-                {/* <a style={{ display: userRole === "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/markingup" aria-current="page">Create Marking Schemes</a>
-				<a style={{ display: userRole === "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/tmpupload" aria-current="page">Upload Templates</a>
-				<a style={{ display: userRole === "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/alltemps" aria-current="page">All Templates</a>
-				<a style={{ display: userRole === "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/assign-panel" aria-current="page">Assign panel</a>&nbsp;&nbsp;&nbsp;
-				<a style={{ display: userRole === "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/ViewAllRoles" aria-current="page">View Roles</a>&nbsp;&nbsp;
-				<a style={{ display: userRole === "admin" ? "flex" : "none" , textDecoration:"none"}} className="sidebarListItem" href="/markspage" aria-current="page">Student Results</a> */}
+                <li class="nav-item">
+                  <a
+                    style={{
+                      display: userRole == "customer" ? "flex" : "none",
+                      textDecoration: "none",
+                    }}
+                    class="nav-link"
+                    href="/creategrp"
+                    aria-current="page"
+                  >
+                    {" "}
+                    Bloges
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    style={{
+                      display: userRole == "customer" ? "flex" : "none",
+                      textDecoration: "none",
+                    }}
+                    class="nav-link"
+                    href="/topicreg"
+                    aria-current="page"
+                  >
+                    Hotels{" "}
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    style={{
+                      display: userRole == "customer" ? "flex" : "none",
+                      textDecoration: "none",
+                    }}
+                    class="nav-link"
+                    href="/group-chat"
+                    aria-current="page"
+                  >
+                    {" "}
+                    Gallery
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    style={{
+                      display: userRole == "admin" ? "flex" : "none",
+                      textDecoration: "none",
+                    }}
+                    class="nav-link"
+                    href="/RegisterAdmin"
+                    aria-current="page"
+                  >
+                    {" "}
+                    Add Admnin{" "}
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    style={{
+                      display: userRole == "admin" ? "flex" : "none",
+                      textDecoration: "none",
+                    }}
+                    class="nav-link"
+                    href="/AllUsers"
+                    aria-current="page"
+                  >
+                    {" "}
+                    All User
+                  </a>
+                </li>
               </div>
             </div>
           </div>
 
           <button
             onClick={handleSubmit}
-            className="btn btn-primary"
+            className="btn btn-secondary toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
             type="submit"
             style={{
               float: "right",

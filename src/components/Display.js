@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import HomeBanner2 from '../assets/HomeBanner2.png';
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
+import HomeBanner2 from "../assets/HomeBanner2.png";
+
 import {
   Card,
   CardHeader,
@@ -68,27 +71,26 @@ const Display = () => {
       <div style={{ marginTop: '30px' }}></div>
       <br />
 
-      <img
-        src={HomeBanner2}
-        alt="HomeBanner2"
-        style={{ width: '100%', height: '100%', borderRadius: 5 }}
-      />
-      <div
-        style={{
-          width: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <table style={{ display: 'flex', flexDirection: 'row' }}>
+
+      <MDBTable>
+        <MDBTableHead>
           <tr>
-            <td>Alfreds Futterkiste</td>
+            <th scope="col" style={{ border: "none" }}>
+              <h1 style={{ fontSize: "100px", marginTop: "-30%" }}>
+                hellocbdsjbfkjfbhksjfcbs
+              </h1>
+            </th>
+            <th scope="col" style={{ border: "none" }}>
+              <img
+                src={HomeBanner2}
+                alt="HomeBanner2"
+                style={{ width: "90%", height: "100%", borderRadius: 5 }}
+              />
+            </th>
           </tr>
-          <tr>
-            <td>Centro comercial Moctezuma</td>
-          </tr>
-        </table>
-      </div>
+        </MDBTableHead>
+        <MDBTableBody></MDBTableBody>
+      </MDBTable>
 
       <center>
         <h1>
