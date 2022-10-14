@@ -4,27 +4,27 @@ import AddTourPackages from "./components/AddTourPackages";
 import Display from "./components/Display";
 import Allusers from "./components/AllUsers";
 
-import Navbar from "./components/layout/Navbar";
+
+import Navbar from './components/layout/Navbar';
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import RegisterAdmin from "./components/Auth/RegisterAdmin";
-import Landing from "./components/layout/Landing";
-import Footer from "./components/Auth/Footer";
-import AdminDisplay from "./components/AdminDisplay";
-import AdminHome from "./components/AdminHome";
-import CusViewReservations from "./components/CusViewReservations";
-import ViewTourPackage from "./components/ViewTourPackage";
-import AddHotelPackages from "./components/AddHotelPackages";
-import ViewHotelDetails from "./components/ViewHotelDetails";
-import UpdateHotelDetails from "./components/UpdateHotelDetails";
-import AddReservation from "./components/AddReservation";
-import UpdateReservation from "./components/UpdateReservation";
-import ViewReservationDetails from "./components/ViewReservationDetails";
-import ReservationDailySummary from "./components/ReservationDailySummary";
-import CusViewHotelDetails from "./components/CusViewHotelDetails";
-import ReservationHomePage from "./components/ReservationHomePage";
-import HotelPackageDetails from "./components/HotelPackageDetails";
-
+import Landing from './components/layout/Landing';
+import AdminDisplay from './components/AdminDisplay';
+import AdminHome from './components/AdminHome';
+import CusViewReservations from './components/CusViewReservations';
+import ViewTourPackage from './components/ViewTourPackage';
+import AddHotelPackages from './components/AddHotelPackages';
+import ViewHotelDetails from './components/ViewHotelDetails';
+import UpdateHotelDetails from './components/UpdateHotelDetails';
+import AddReservation from './components/AddReservation';
+import UpdateReservation from './components/UpdateReservation';
+import ViewReservationDetails from './components/ViewReservationDetails';
+import ReservationDailySummary from './components/ReservationDailySummary';
+import CusViewHotelDetails from './components/CusViewHotelDetails';
+import ReservationHomePage from './components/ReservationHomePage';
+import HotelPackageDetails from './components/HotelPackageDetails';
+import UserUpdate from './components/UserUpdate';
 
 import UpdateTourPacakage from './components/UpdateTourPacakage';
 import ViewBlogs from './components/viewBlogs';
@@ -32,7 +32,9 @@ import WriteBlog from './components/writeBlog';
 import ViewOneBlog from './components/viewOneBlog';
 import AdminReadBlogs from './components/adminReadBlogs';
 import EditBlog from './components/editBogs';
+import UserReport from './components/UserReport'
 import BlogReport from './components/blogReport';
+
 
 let isauth = localStorage.getItem('user');
 
@@ -60,6 +62,7 @@ function App() {
           <Route path="/ViewTourPackage/:id" element={<ViewTourPackage />} />
           <Route path="/AddHotelPackages" element={<AddHotelPackages />} />
           <Route path="/ViewHotelDetails" element={<ViewHotelDetails />} />
+          <Route path="/Userreport" element={<UserReport />} />
           <Route
             path="/UpdateHotelDetails/:id"
             element={<UpdateHotelDetails />}
@@ -97,8 +100,8 @@ function App() {
             element={<ReservationHomePage />}
           />
 
-          {/* <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
    
           <Route path="/Display" element={<Display />} />
@@ -125,6 +128,10 @@ function App() {
           <Route
             path="/UpdateTourPackages/:id"
             element={<UpdateTourPacakage />}
+          />
+          <Route
+            path="/updateUser/:id"
+            element={<UserUpdate />}
           />
         </Routes>
         <br></br>
