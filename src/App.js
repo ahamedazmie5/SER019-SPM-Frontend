@@ -5,9 +5,9 @@ import Display from "./components/Display";
 import Allusers from "./components/AllUsers";
 
 import Navbar from "./components/layout/Navbar";
-import Login from "./components/Auth/Login";
-import Register from "./components/Auth/Register";
-import RegisterAdmin from "./components/Auth/RegisterAdmin";
+//import Login from "./components/Auth/Login";
+//import Register from "./components/Auth/Register";
+//import RegisterAdmin from "./components/Auth/RegisterAdmin";
 import Landing from "./components/layout/Landing";
 import AdminDisplay from "./components/AdminDisplay";
 import AdminHome from "./components/AdminHome";
@@ -22,6 +22,8 @@ import ViewReservationDetails from "./components/ViewReservationDetails";
 import ReservationDailySummary from "./components/ReservationDailySummary";
 import CusViewHotelDetails from "./components/CusViewHotelDetails";
 import ReservationHomePage from "./components/ReservationHomePage";
+import HotelPackageDetails from "./components/HotelPackageDetails";
+import CusViewReservations from "./components/CusViewReservations";
 
 import UpdateTourPacakage from "./components/UpdateTourPacakage";
 import ViewBlogs from "./components/viewBlogs";
@@ -43,9 +45,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/RegisterAdmin" element={<RegisterAdmin />} />
+          <Route path="/RegisterAdmin" element={<RegisterAdmin />} /> */}
 
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
           <Route path="/Display" element={<Display />} />
@@ -62,7 +64,9 @@ function App() {
             path="/UpdateReservation/:id"
             element={<UpdateReservation />}
           />
-
+          <Route  path="/HotelPackageDetails/:id" element={<HotelPackageDetails />}/>
+          <Route  path="/CusViewReservations" element={<CusViewReservations />}/>
+          
           <Route path="/AllUsers" element={<Allusers />} />
 
           <Route
@@ -82,8 +86,8 @@ function App() {
             element={<ReservationHomePage />}
           />
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          {/* <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} /> */}
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
 
           <Route path="/Display" element={<Display />} />
