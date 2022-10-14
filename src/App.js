@@ -25,14 +25,17 @@ import CusViewHotelDetails from "./components/CusViewHotelDetails";
 import ReservationHomePage from "./components/ReservationHomePage";
 import HotelPackageDetails from "./components/HotelPackageDetails";
 
-import UpdateTourPacakage from "./components/UpdateTourPacakage";
-import ViewBlogs from "./components/viewBlogs";
-import WriteBlog from "./components/writeBlog";
-import ViewOneBlog from "./components/viewOneBlog";
-import AdminReadBlogs from "./components/adminReadBlogs";
-import EditBlog from "./components/editBogs";
 
-let isauth = localStorage.getItem("user");
+import UpdateTourPacakage from './components/UpdateTourPacakage';
+import ViewBlogs from './components/viewBlogs';
+import WriteBlog from './components/writeBlog';
+import ViewOneBlog from './components/viewOneBlog';
+import AdminReadBlogs from './components/adminReadBlogs';
+import EditBlog from './components/editBogs';
+import BlogReport from './components/blogReport';
+
+let isauth = localStorage.getItem('user');
+
 
 function App() {
   const [user, setUser] = useState("");
@@ -117,6 +120,7 @@ function App() {
           <Route path="/OneBlog/:id" element={<ViewOneBlog />} />
           <Route path="/adminReadBlog" element={<AdminReadBlogs />} />
           <Route path="/EditBlog/:id" element={<EditBlog />} />
+          <Route path="/blogReport" element={<BlogReport />} />
 
           <Route
             path="/UpdateTourPackages/:id"

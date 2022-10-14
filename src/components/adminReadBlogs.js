@@ -54,7 +54,14 @@ const AdminReadBlogs = () => {
           method: 'DELETE',
         }
       );
-      await deleteBlog.json();
+      const deleteDetails = await deleteBlog.json();
+      if (deleteDetails) {
+        alert('Blog deleted sucessfully.');
+        location.reload();
+      } else {
+        alert('Something went wrong');
+      }
+
       console.log(deleteBlog);
     } catch (error) {
       console.error(error.message);
@@ -107,6 +114,7 @@ const AdminReadBlogs = () => {
       console.error(error.message);
     }
   };
+
   return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
