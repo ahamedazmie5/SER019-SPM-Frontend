@@ -1,8 +1,6 @@
-
-
-import {useState ,useEffect }from 'react'
+import { useState, useEffect } from "react";
 import axios from "axios";
-import HomeBanner2 from "../assets/HomeBanner2.png"
+import HomeBanner2 from "../assets/HomeBanner2.png";
 import {
   Card,
   CardHeader,
@@ -16,10 +14,8 @@ import {
   CardText,
 } from "reactstrap";
 
-
-const  Display  = () => {
+const Display = () => {
   const [MarkingSchema, SetMarkingSchema] = useState([]);
-
 
   const getData = async () => {
     console.log("get data executed");
@@ -38,35 +34,28 @@ const  Display  = () => {
     getData();
   }, []);
 
- 
-
-
-
   return (
     <div style={{ textAlign: "center" }}>
-           
-      <div style={{marginTop:"30px"}}>
-          
-        </div>
-        <br/>
-        
-        <img
+      <div style={{ marginTop: "30px" }}></div>
+      <br />
+
+      <img
         src={HomeBanner2}
         alt="HomeBanner2"
-        style={{ width: '100%', height: '100%', borderRadius: 5 }}
+        style={{ width: "100%", height: "100%", borderRadius: 5 }}
       />
 
-      
- 
-
       <center>
-        <h1><b>Tour Packages</b></h1><br></br>
+        <h1>
+          <b>Tour Packages</b>
+        </h1>
+        <br></br>
       </center>
-      <Container  >
+      <Container>
         <Row xs={4}>
-          {MarkingSchema?.map((tourpackage) => {
+          {MarkingSchema?.map((tourpackage, index) => {
             return (
-              <Col style={{ padding: "10px"  , height:"auto"}}>
+              <Col style={{ padding: "10px", height: "auto" }} key={index}>
                 <Card>
                   <CardHeader>
                     <CardTitle style={{ color: "black", fontSize: "25px" }}>
@@ -79,16 +68,18 @@ const  Display  = () => {
                         //width="50%"
                         src={tourpackage?.img}
                         alt="computing Img"
-                        style={{ width: "100%" , height:"100%" }}
+                        style={{ width: "100%", height: "100%" }}
                       />
                     </center>
                   </CardHeader>
                   <CardBody>
                     {/* <CardText> description -: {tourpackage.title}</CardText> */}
-                    <CardText style={{ color: "red"}}><b>Price :- &nbsp;LKR {tourpackage.title}</b></CardText>
+                    <CardText style={{ color: "red" }}>
+                      <b>Price :- &nbsp;LKR {tourpackage.title}</b>
+                    </CardText>
 
                     <Button
-                      style={{ marginRight: "20px" ,  width:"100%" }}
+                      style={{ marginRight: "20px", width: "100%" }}
                       className="btn btn-success"
                       href={`/ViewTourPackage/${tourpackage._id}`}
                     >
@@ -100,9 +91,9 @@ const  Display  = () => {
             );
           })}
         </Row>
-      </Container>    
+      </Container>
     </div>
   );
 };
 
-export default  Display ;
+export default Display;
