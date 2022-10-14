@@ -79,15 +79,15 @@ const ViewTourPackage = () => {
               </center>
             </h1>
           </CardTitle>
-          <Table bordered={true}>
+          <Table >
             <thead>
-              <tr>
-                <th> </th>
+              <tr style={ {border: "none"}} >
+                <th style={ {border: "none"}} > </th>
               </tr>
             </thead>
             <tbody id="cusdet">
-              <tr>
-                <td>
+              <tr style={ {border: "none"}} >
+                <td style={ {border: "none"}}>
                   {" "}
                   <center>
                     {" "}
@@ -95,8 +95,8 @@ const ViewTourPackage = () => {
                   </center>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr style={ {border: "none"}} >
+                <td style={ {border: "none"}} >
                   <center>
                     <img
                       src={data.img}
@@ -105,16 +105,16 @@ const ViewTourPackage = () => {
                   </center>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr style={ {border: "none"}} >
+                <td style={ {border: "none"}} >
                   {" "}
                   <center>
                     <label>Description :- {data.description}</label>
                   </center>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr style={ {border: "none"}} >
+                <td style={ {border: "none"}} >
                   {" "}
                   <center>
                     {" "}
