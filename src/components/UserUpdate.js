@@ -74,7 +74,7 @@
  
      } else {
        {
-         Swal.fire('Congrats', 'Update room successfully ', 'success')
+         Swal.fire('Congrats', 'Update User Unsuccessful', 'success')
          navigate("");
        }
      }

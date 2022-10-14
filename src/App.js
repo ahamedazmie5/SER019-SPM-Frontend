@@ -51,7 +51,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
+          <Route exact path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/RegisterAdmin" element={<RegisterAdmin />} />
@@ -135,7 +135,7 @@ function App() {
           />
         </Routes>
         <br></br>
-        <div style={{ marginTop: "20%" }}>
+        <div style={{ marginTop: "0%" }}>
           <Footer />
         </div>
       </Router>
