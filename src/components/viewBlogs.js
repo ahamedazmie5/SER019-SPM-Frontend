@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
+//import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+//import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Grid from '@mui/material/Grid';
 import { Link } from '@mui/material';
 import Collapse from '@mui/material/Collapse';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardBody,
+  Button,
+  Row,
+  Col,
+  CardImg,
+  Container,
+  CardText,
+} from 'reactstrap';
 
 import arch1 from '../assets/arch.jpeg';
 import background from '../assets/blogBackground.jpg';
@@ -169,7 +181,7 @@ const ViewBlogs = () => {
         </div> */}
         <br />
 
-        <Box sx={{ flexGrow: 0 }}>
+        {/* <Box sx={{ flexGrow: 0 }}>
           <Grid
             container
             columnSpacing={{ xs: 0 }}
@@ -197,13 +209,7 @@ const ViewBlogs = () => {
                       style={{ height: '375px', width: '300px' }}
                     />
                     <Card sx={{ maxWidth: 345 }}>
-                      {/* <CardMedia
-                    component="img"
-                    //alt="Nine arch"
-                    height="140"
-                    //image={image}
-                    //image={cards.img}
-                  > */}{' '}
+                      {' '}
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
                           {cards.title}
@@ -227,7 +233,63 @@ const ViewBlogs = () => {
                 </Grid>
               ))}
           </Grid>
-        </Box>
+        </Box> */}
+
+        <Container>
+          <Row xs={4}>
+            {blogsArray
+              ?.filter((blogsArray) => {
+                if (searchTerm === '') {
+                  return blogsArray;
+                } else if (
+                  blogsArray.title
+                    .toLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase())
+                ) {
+                  return blogsArray;
+                }
+              })
+              .map((blogsArray, index) => {
+                return (
+                  <Col style={{ padding: '10px', height: 'auto' }} key={index}>
+                    <Card>
+                      <CardHeader>
+                        <CardTitle style={{ color: 'black', fontSize: '25px' }}>
+                          <center>
+                            <b>{blogsArray.title}</b>
+                          </center>
+                        </CardTitle>
+                        <center>
+                          <CardImg
+                            //width="50%"
+                            src={blogsArray?.image}
+                            alt="computing Img"
+                            style={{ width: '100%', height: '100%' }}
+                          />
+                        </center>
+                      </CardHeader>
+                      <CardBody>
+                        {/* <CardText> description -: {blogsArray.title}</CardText> */}
+                        <CardText style={{ color: 'black' }}>
+                          <b>{blogsArray.subDescription}</b>
+                        </CardText>
+
+                        <Button
+                          style={{ marginRight: '20px', width: '100%' }}
+                          className="btn btn-success"
+                          onClick={(e) => {
+                            readMore(e, blogsArray.id);
+                          }}
+                        >
+                          Read more
+                        </Button>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                );
+              })}
+          </Row>
+        </Container>
       </div>
     </>
   );

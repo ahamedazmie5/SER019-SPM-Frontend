@@ -15,7 +15,7 @@ import axios from 'axios';
 //import { storage } from './firebase';
 import FileInput from '../utils/FileInput';
 
-import background from '../assets/blogBackground.jpg';
+import blog from '../assets/blog.jpg';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   backgroundColor: purple[500],
@@ -113,123 +113,126 @@ const WriteBlog = () => {
   return (
     <>
       {/* <ResponsiveAppBar /> */}
+      <div style={{ backgroundImage: `url(${blog[0]})` }}>
+        <a href="/viewblogs" style={{ marginTop: 10 }}>
+          Read Blogs
+        </a>
+        <Typography
+          style={{
+            textAlign: 'center',
+            fontWeight: 'bold',
+            marginBottom: 14,
+            marginTop: 14,
+            fontSize: 53,
+            color: '#001a66',
+          }}
+        >
+          Write your blog here.
+        </Typography>
+        <img
+          src={blog}
+          alt="front image"
+          style={{ width: '100%', height: 500, borderRadius: 5 }}
+        />
 
-      <a href="/viewblogs" style={{ marginTop: 10 }}>
-        Read Blogs
-      </a>
-      <Typography
-        style={{
-          textAlign: 'center',
-          fontWeight: 'bold',
-          marginBottom: 14,
-          marginTop: 14,
-          fontSize: 53,
-          color: '#001a66',
-        }}
-      >
-        Write your blog here.
-      </Typography>
-      <img
-        src={background}
-        alt="front image"
-        style={{ width: '100%', height: 500, borderRadius: 5 }}
-      />
-
-      <hr color="#001a66" />
-      <div
-        style={{
-          justifyContent: 'center',
-          display: 'flex',
-        }}
-      >
-        <div style={{ backgroundImage: '../assets/blogBackground.jpg' }}>
-          <FormControl
-            sx={{
-              width: '100%',
-              border: '2px solid #772AD8',
-              borderRadius: 2,
-            }}
-          >
-            <Box style={{ padding: 19 }}>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                }}
-              >
-                {' '}
-                <div style={{ marginTop: 3 }}>
-                  <Typography style={{ marginBottom: 3 }}>Image</Typography>
-                  <FileInput
-                    name="img"
-                    label="Choose image"
-                    handleInputState={handleInputState}
-                    type="image"
-                    value={data.img}
-                  />
+        <hr color="#001a66" />
+        <div
+          style={{
+            justifyContent: 'center',
+            display: 'flex',
+          }}
+        >
+          <div style={{ backgroundImage: '../assets/blogBackground.jpg' }}>
+            <FormControl
+              sx={{
+                width: '100%',
+                border: '2px solid #772AD8',
+                borderRadius: 2,
+              }}
+            >
+              <Box style={{ padding: 19 }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  {' '}
+                  <div style={{ marginTop: 3 }}>
+                    <Typography style={{ marginBottom: 3 }}>Image</Typography>
+                    <FileInput
+                      name="img"
+                      label="Choose image"
+                      handleInputState={handleInputState}
+                      type="image"
+                      value={data.img}
+                    />
+                  </div>
+                  <div style={{ marginTop: 5, marginLeft: 10 }}>
+                    <Typography style={{ marginBottom: 3 }}>Title</Typography>
+                    <TextField
+                      label="Title"
+                      value={data.title}
+                      name="title"
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
-                <div style={{ marginTop: 5, marginLeft: 10 }}>
-                  <Typography style={{ marginBottom: 3 }}>Title</Typography>
+                <div style={{ marginTop: 5 }}>
+                  <Typography style={{ marginBottom: 3 }}>
+                    Sub description
+                  </Typography>
                   <TextField
-                    label="Title"
-                    value={data.title}
-                    name="title"
+                    fullWidth
+                    label="sub description"
+                    value={data.subDescription}
+                    name="subDescription"
                     onChange={handleChange}
                   />
                 </div>
-              </div>
-              <div style={{ marginTop: 5 }}>
-                <Typography style={{ marginBottom: 3 }}>
-                  Sub description
-                </Typography>
-                <TextField
-                  fullWidth
-                  label="sub description"
-                  value={data.subDescription}
-                  name="subDescription"
-                  onChange={handleChange}
-                />
-              </div>
-              <div style={{ marginTop: 5 }}>
-                <Typography style={{ marginBottom: 3 }}>Description</Typography>
-                <TextField
-                  multiline={true}
-                  rows={5}
-                  fullWidth
-                  value={data.description}
-                  name="description"
-                  onChange={handleChange}
-                />
-              </div>
-              <div
-                style={{
-                  marginTop: 32,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  marginRight: 2,
-                  marginBottom: 16,
-                  marginLeft: 26,
-                }}
-              >
-                <ColorButton2
-                  variant="outlined"
+                <div style={{ marginTop: 5 }}>
+                  <Typography style={{ marginBottom: 3 }}>
+                    Description
+                  </Typography>
+                  <TextField
+                    multiline={true}
+                    rows={5}
+                    fullWidth
+                    value={data.description}
+                    name="description"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div
                   style={{
-                    color: 'black',
-                    border: '1px solid purple',
-                    marginLeft: 'auto',
-                    marginRight: 11,
+                    marginTop: 32,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    marginRight: 2,
+                    marginBottom: 16,
+                    marginLeft: 26,
                   }}
-                  onClick={onInsertCancell}
                 >
-                  Cancel
-                </ColorButton2>
-                <ColorButton variant="contained" onClick={onAdd}>
-                  Add
-                </ColorButton>
-              </div>
-            </Box>
-          </FormControl>
+                  <ColorButton2
+                    variant="outlined"
+                    style={{
+                      color: 'black',
+                      border: '1px solid purple',
+                      marginLeft: 'auto',
+                      marginRight: 11,
+                    }}
+                    onClick={onInsertCancell}
+                  >
+                    Cancel
+                  </ColorButton2>
+                  <ColorButton variant="contained" onClick={onAdd}>
+                    Add
+                  </ColorButton>
+                </div>
+              </Box>
+            </FormControl>
+          </div>
         </div>
       </div>
     </>
