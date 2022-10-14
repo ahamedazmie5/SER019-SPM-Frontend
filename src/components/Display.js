@@ -93,6 +93,7 @@ const Display = () => {
         </Row>
       </Container>
     </div>
+    
   );
 };
 
