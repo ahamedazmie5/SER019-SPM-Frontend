@@ -100,7 +100,7 @@ function App() {
           {/* <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} /> */}
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
-
+   
           <Route path="/Display" element={<Display />} />
           <Route path="/AdminDisplay" element={<AdminDisplay />} />
           <Route path="/AdminHome" element={<AdminHome />} />
