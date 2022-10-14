@@ -24,8 +24,8 @@ axios.get("http://localhost:8080/travelgo/packages/getAllHotelPackages").then(re
 })
 }
 
-onDelete = (id) =>{
-axios.delete(`http://localhost:8080/menutables/delete/${id}`).then((res) =>{
+onDelete = (finalid) =>{
+axios.delete(`http://localhost:8080/travelgo/packages/RemoveHotelPackages/${finalid}`).then((res) =>{
 alert("Delete Successfully");
 this.retrievePosts();
 })
@@ -52,7 +52,7 @@ handleSearchArea = async (e) =>{
 render() {
 return (
 <div>
-{/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
+<nav className="navbar navbar-expand-lg navbar-light bg-light">
   
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -66,10 +66,10 @@ return (
           <b><a className="nav-link" aria-current="page" href="/AddHotelPackages"><h5>Add New Hotel Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Update Hotel Details</h5></a></b>
+          <b><a className="nav-link" href="/ViewHotelDetails"><h5>Update Hotel Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/UpdateHotelDetails/:id"><h5>Delete Hotel Details</h5></a></b>
+          <b><a className="nav-link" href="/ViewHotelDetails"><h5>Delete Hotel Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
           <b><a className="nav-link" href="/ReservationDailySummary"><h5>Reservation Daily Summary</h5></a></b>
@@ -80,7 +80,7 @@ return (
       
     </div>
 
-</nav> */}
+</nav>
 
 <div className="container">
     <div className="row">
@@ -117,7 +117,7 @@ return (
 <tr key={index}>
 <th scope="row">{index+1}</th>
 <td>
-<a href={`/post/${post._id}`} style={{textDecoration:'none'}}>
+<a href={`/HotelPackageDetails/${post._id}`} style={{textDecoration:'none'}}>
 {post.Hotel_ID}
 </a>
 </td>
@@ -127,12 +127,12 @@ return (
 <td>{post.Luxury_Room_Price}</td>
 <td>{post.Hotel_Contact}</td>
 <td>{post.Location}</td>
-<td>
+<td style={{width:"200px"}}>
 <a className="btn btn-warning" href={`/UpdateHotelDetails/${post._id}`}>
 <i className="fas fa-edit"></i>&nbsp;Edit
 </a>
 &nbsp;
-<a className="btn btn-danger" href="/#" onClick={() =>this.onDelete(post._id)}>
+<a className="btn btn-danger" onClick={() =>this.onDelete(post._id)}>
 <i className="fas fa-trash-alt"></i>&nbsp;Delete
 </a>
 </td>

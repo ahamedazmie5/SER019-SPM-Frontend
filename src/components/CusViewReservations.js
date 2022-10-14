@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class ViewReservationDetails extends Component{
+export default class CusViewReservations extends Component{
 constructor(props){
 super(props);
 
@@ -61,22 +61,16 @@ return (
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/ViewHotelDetails"><h5>View All Hotels</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/CusViewHotelDetails"><h5>View All Hotels Packages</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link active" aria-current="page" href="/ViewReservationDetails"><h5>View All Reservations</h5></a></b>
+          <b><a className="nav-link" aria-current="page" href="/AddReservation"><h5>Add New Reservation</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" aria-current="page" href="/AddHotelPackages"><h5>Add New Hotel Packages</h5></a></b>
+          <b><a className="nav-link  active" href="/CusViewReservations"><h5>Update Reservation Details</h5></a></b>
         </li>
         <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/ViewHotelDetails"><h5>Update Hotel Details</h5></a></b>
-        </li>
-        <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/ViewHotelDetails"><h5>Delete Hotel Details</h5></a></b>
-        </li>
-        <li className="nav-item" style={{backgroundColor:'#C0C0C0',color:'black',marginRight:'5px'}}>
-          <b><a className="nav-link" href="/ReservationDailySummary"><h5>Reservation Daily Summary</h5></a></b>
+          <b><a className="nav-link active" href="/CusViewReservations"><h5>Delete Reservation Details</h5></a></b>
         </li>
         
       </ul>
@@ -132,7 +126,15 @@ return (
 <td>{post.Room_Type}</td>
 <td>{post.No_Of_Members}</td>
 
-
+<td style={{width:"400px"}}>
+<a className="btn btn-warning" href={`/UpdateReservation/${post._id}`}>
+<i className="fas fa-edit"></i>&nbsp;Edit
+</a>
+&nbsp;
+<a className="btn btn-danger" onClick={() =>this.onDelete(post._id)}>
+<i className="fas fa-trash-alt"></i>&nbsp;Delete
+</a>
+</td>
 </tr>
 ))}
 </tbody>

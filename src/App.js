@@ -64,6 +64,14 @@ function App() {
             path="/UpdateReservation/:id"
             element={<UpdateReservation />}
           />
+          <Route
+            path="/HotelPackageDetails/:id"
+            element={<HotelPackageDetails />}
+          />
+          <Route
+            path="/CusViewReservations"
+            element={<CusViewReservations />}
+          />
 
           <Route path="/AllUsers" element={<Allusers />} />
 
