@@ -106,7 +106,7 @@ const AdminDisplay = () => {
 
                         <div>
                           <Link to={`/UpdateTourPackages/${tourpackage._id}`}>
-                            <button className="btn btn-success">Update </button>
+                            <button className="btn btn-success">Update</button>
                             &nbsp;&nbsp;&nbsp;
                           </Link>
                           <button
@@ -127,9 +127,6 @@ const AdminDisplay = () => {
             );
           })}
         </Row>
-        <button className="btn btn-danger btn-sm" onClick={pdfGenerat}>
-          Generate PDF
-        </button>
       </Container>
     </div>
   );
