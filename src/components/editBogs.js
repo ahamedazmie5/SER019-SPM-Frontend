@@ -10,12 +10,13 @@ import {
 import FolderIcon from '@mui/icons-material/Folder';
 import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
-
 import axios from 'axios';
 //import { storage } from './firebase';
 import FileInput from '../utils/FileInput';
+import ResponsiveAppBar from './appBar';
 
 import background from '../assets/blogBackground.jpg';
+import { useParams } from 'react-router-dom';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   backgroundColor: purple[500],
@@ -30,19 +31,64 @@ const ColorButton2 = styled(Button)(({ theme }) => ({
   color: 'black',
 }));
 
-const WriteBlog = () => {
-  // const [title, setTitle] = useState('');
-  // const [subDescription, setsubDescription] = useState('');
-  // const [description, setDescription] = useState('');
-  // const [image, setImage] = useState();
+const EditBlog = () => {
+  const id = useParams();
+  const [title, setTitle] = useState('');
+  const [subDescription, setsubDescription] = useState('');
+  const [description, setDescription] = useState('');
+  const [image, setImage] = useState();
+
+  useEffect(() => {
+    dataget();
+  }, []);
+
+  const dataget = async () => {
+    const fetchData = await fetch(
+      `http://localhost:8080/blogs/getBlogById/${id.id}`
+    ); //fetch data
+
+    const jsonData = await fetchData.json();
+    console.log(jsonData);
+    if (jsonData) {
+      setData({
+        img: jsonData.img,
+        title: jsonData.title,
+        subDescription: jsonData.subDescription,
+        description: jsonData.description,
+      });
+      // setsubDescription(jsonData.subDescription);
+      // setDescription(jsonData.description);
+      // setImage(jsonData.img);
+      // console.log(jsonData.title);
+    }
+  };
+  console.log(title, subDescription, description);
+
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleSubDescription = (e) => {
+    setsubDescription(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+    console.log(e.target.value);
+  };
 
   const onInsertCancell = () => {
-    setData({
-      img: '',
-      title: '',
-      subDescription: '',
-      description: '',
-    });
+    //   setData({
+    //     img: '',
+    //     title: '',
+    //     subDescription: '',
+    //     description: '',
+    //   });
+    setTitle('');
+    setsubDescription('');
+    setDescription('');
   };
 
   const [data, setData] = useState({
@@ -52,53 +98,37 @@ const WriteBlog = () => {
     description: '',
   });
 
-  // word limit validation
   const handleChange = ({ currentTarget: input }) => {
-    if (input.name == 'title' && input.value.length > 30) {
-      alert('Word limit exceeded.');
-    } else setData({ ...data, [input.name]: input.value });
+    setData({ ...data, [input.name]: input.value });
   };
 
   const handleInputState = (name, value) => {
     setData((prev) => ({ ...prev, [name]: value }));
   };
 
-  //null validation of the form
-  const onAdd = () => {
-    if (
-      data.title == '' &&
-      data.description == '' &&
-      data.subDescription == ''
-    ) {
-      alert('Please fill all the fields.');
-    } else if (data.title == '') {
-      alert('Please fill all the fields.');
-    } else if (data.description == '') {
-      alert('Please fill all the fields.');
-    } else if (data.subDescription == '') {
-      alert('Please fill all the fields.');
-    } else if (data.img == '') {
-      alert('Please upload an image.');
-    } else if (data.title == '' && data.subDescription == '') {
-      alert('Please fill all the fields.');
-    } else if (data.title == '' && data.subDescription == '') {
-      alert('Please fill all the fields.');
-    } else {
-      onInsertOk();
-    }
-  };
+  // useEffect(() => {
+  //   console.log(title, subDescription, description);
+  // }, [title, subDescription, description]);
 
-  const onInsertOk = async () => {
+  const onInsertOk = async (e) => {
     try {
-      const insert = await fetch('http://localhost:8080/blogs/createBlogs', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const insert = await fetch(
+        `http://localhost:8080/blogs/updateBlogById/${id.id}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
       const newData = await insert.json();
       console.log(insert, 'data');
+      if (newData.title !== null) {
+        alert('Inserted sucessfully.');
+      } else {
+        alert('Some thing went wrong.');
+      }
     } catch (error) {
       console.error(error.message);
     }
@@ -112,8 +142,7 @@ const WriteBlog = () => {
 
   return (
     <>
-      {/* <ResponsiveAppBar /> */}
-
+      <ResponsiveAppBar />
       <a href="/viewblogs" style={{ marginTop: 10 }}>
         Read Blogs
       </a>
@@ -127,14 +156,13 @@ const WriteBlog = () => {
           color: '#001a66',
         }}
       >
-        Write your blog here.
+        Edit your blog here.
       </Typography>
       <img
         src={background}
         alt="front image"
         style={{ width: '100%', height: 500, borderRadius: 5 }}
       />
-
       <hr color="#001a66" />
       <div
         style={{
@@ -142,7 +170,7 @@ const WriteBlog = () => {
           display: 'flex',
         }}
       >
-        <div style={{ backgroundImage: '../assets/blogBackground.jpg' }}>
+        <div>
           <FormControl
             sx={{
               width: '100%',
@@ -163,11 +191,11 @@ const WriteBlog = () => {
                   <Typography style={{ marginBottom: 3 }}>Image</Typography>
                   <FileInput
                     name="img"
+                    value={data.img}
                     label="Choose image"
                     handleInputState={handleInputState}
                     type="image"
-                    value={data.img}
-                  />
+                  ></FileInput>
                 </div>
                 <div style={{ marginTop: 5, marginLeft: 10 }}>
                   <Typography style={{ marginBottom: 3 }}>Title</Typography>
@@ -176,7 +204,9 @@ const WriteBlog = () => {
                     value={data.title}
                     name="title"
                     onChange={handleChange}
-                  />
+                  >
+                    {title}
+                  </TextField>
                 </div>
               </div>
               <div style={{ marginTop: 5 }}>
@@ -185,11 +215,13 @@ const WriteBlog = () => {
                 </Typography>
                 <TextField
                   fullWidth
-                  label="sub description"
+                  // label="sub description"
                   value={data.subDescription}
                   name="subDescription"
                   onChange={handleChange}
-                />
+                >
+                  {subDescription}
+                </TextField>
               </div>
               <div style={{ marginTop: 5 }}>
                 <Typography style={{ marginBottom: 3 }}>Description</Typography>
@@ -200,7 +232,9 @@ const WriteBlog = () => {
                   value={data.description}
                   name="description"
                   onChange={handleChange}
-                />
+                >
+                  {description}
+                </TextField>
               </div>
               <div
                 style={{
@@ -224,8 +258,13 @@ const WriteBlog = () => {
                 >
                   Cancel
                 </ColorButton2>
-                <ColorButton variant="contained" onClick={onAdd}>
-                  Add
+                <ColorButton
+                  variant="contained"
+                  onClick={(e) => {
+                    onInsertOk(e);
+                  }}
+                >
+                  Edit
                 </ColorButton>
               </div>
             </Box>
@@ -236,4 +275,4 @@ const WriteBlog = () => {
   );
 };
 
-export default WriteBlog;
+export default EditBlog;
