@@ -1,21 +1,20 @@
 import axios from 'axios';
 
 
-let getAllUsersURL = "http://localhost:8080/travelgo/user/getAllUsers"; 
-let getUserByIdURL = "http://localhost:8080/travelgo/user/getUserById/";
-let updateUserByIdURL = "http://localhost:8080/travelgo/travelgo/user/updateUserById/";
+let getAllUsersURL = "http://localhost:8080/user/getAllUsers"; 
+let getUserByIdURL = "http://localhost:8080/user/getUserById/";
+let updateUserByIdURL = "http://localhost:8080/user/updateUserById/";
 
 
 
-export async function UpdateUser(id,data) {
+export async function updateUserById(id,data) {
     const alldata = {
       
         
         
-
-        email:data.email,
-        userName:data.userName,
-        contactNumber:data.contactNumber,
+        Fullname: data.Fullname,
+        pNumber: data.pNumber,
+        email: data.email,
 
 
     };
@@ -31,5 +30,5 @@ export async function getAllUsers() {
 }
 
 export async function getUser(id) { 
-    return await axios.get(getTourPackagessByIdURL + id);
+    return await axios.get(getUserByIdURL + id);
 }

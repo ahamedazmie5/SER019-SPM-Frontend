@@ -5,9 +5,9 @@ import Display from './components/Display';
 import Allusers from './components/AllUsers';
 
 import Navbar from './components/layout/Navbar';
-// import Login from "./components/Auth/Login";
-// import Register from "./components/Auth/Register";
-// import RegisterAdmin from "./components/Auth/RegisterAdmin";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
+import RegisterAdmin from "./components/Auth/RegisterAdmin";
 import Landing from './components/layout/Landing';
 import AdminDisplay from './components/AdminDisplay';
 import AdminHome from './components/AdminHome';
@@ -23,6 +23,7 @@ import ReservationDailySummary from './components/ReservationDailySummary';
 import CusViewHotelDetails from './components/CusViewHotelDetails';
 import ReservationHomePage from './components/ReservationHomePage';
 import HotelPackageDetails from './components/HotelPackageDetails';
+import UserUpdate from './components/UserUpdate';
 
 
 import UpdateTourPacakage from './components/UpdateTourPacakage';
@@ -31,6 +32,7 @@ import WriteBlog from './components/writeBlog';
 import ViewOneBlog from './components/viewOneBlog';
 import AdminReadBlogs from './components/adminReadBlogs';
 import EditBlog from './components/editBogs';
+import UserReport from './components/UserReport'
 
 let isauth = localStorage.getItem('user');
 
@@ -47,9 +49,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={isauth ? <Display /> : <Landing />} />
-          {/* <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/RegisterAdmin" element={<RegisterAdmin />} /> */}
+          <Route path="/RegisterAdmin" element={<RegisterAdmin />} />
 
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
           <Route path="/Display" element={<Display />} />
@@ -57,6 +59,7 @@ function App() {
           <Route path="/ViewTourPackage/:id" element={<ViewTourPackage />} />
           <Route path="/AddHotelPackages" element={<AddHotelPackages />} />
           <Route path="/ViewHotelDetails" element={<ViewHotelDetails />} />
+          <Route path="/Userreport" element={<UserReport />} />
           <Route
             path="/UpdateHotelDetails/:id"
             element={<UpdateHotelDetails />}
@@ -94,8 +97,8 @@ function App() {
             element={<ReservationHomePage />}
           />
 
-          {/* <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
 
           <Route path="/Display" element={<Display />} />
@@ -121,6 +124,10 @@ function App() {
           <Route
             path="/UpdateTourPackages/:id"
             element={<UpdateTourPacakage />}
+          />
+          <Route
+            path="/updateUser/:id"
+            element={<UserUpdate />}
           />
         </Routes>
       </Router>
