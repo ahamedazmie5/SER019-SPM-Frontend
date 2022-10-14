@@ -1,42 +1,42 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import AddTourPackages from "./components/AddTourPackages";
-import Display from "./components/Display";
-import Allusers from "./components/AllUsers";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import AddTourPackages from './components/AddTourPackages';
+import Display from './components/Display';
+import Allusers from './components/AllUsers';
 
-import Navbar from "./components/layout/Navbar";
-//import Login from "./components/Auth/Login";
-//import Register from "./components/Auth/Register";
-//import RegisterAdmin from "./components/Auth/RegisterAdmin";
-import Landing from "./components/layout/Landing";
-import AdminDisplay from "./components/AdminDisplay";
-import AdminHome from "./components/AdminHome";
+import Navbar from './components/layout/Navbar';
+// import Login from "./components/Auth/Login";
+// import Register from "./components/Auth/Register";
+// import RegisterAdmin from "./components/Auth/RegisterAdmin";
+import Landing from './components/layout/Landing';
+import AdminDisplay from './components/AdminDisplay';
+import AdminHome from './components/AdminHome';
 
-import ViewTourPackage from "./components/ViewTourPackage";
-import AddHotelPackages from "./components/AddHotelPackages";
-import ViewHotelDetails from "./components/ViewHotelDetails";
-import UpdateHotelDetails from "./components/UpdateHotelDetails";
-import AddReservation from "./components/AddReservation";
-import UpdateReservation from "./components/UpdateReservation";
-import ViewReservationDetails from "./components/ViewReservationDetails";
-import ReservationDailySummary from "./components/ReservationDailySummary";
-import CusViewHotelDetails from "./components/CusViewHotelDetails";
-import ReservationHomePage from "./components/ReservationHomePage";
-import HotelPackageDetails from "./components/HotelPackageDetails";
-import CusViewReservations from "./components/CusViewReservations";
+import ViewTourPackage from './components/ViewTourPackage';
+import AddHotelPackages from './components/AddHotelPackages';
+import ViewHotelDetails from './components/ViewHotelDetails';
+import UpdateHotelDetails from './components/UpdateHotelDetails';
+import AddReservation from './components/AddReservation';
+import UpdateReservation from './components/UpdateReservation';
+import ViewReservationDetails from './components/ViewReservationDetails';
+import ReservationDailySummary from './components/ReservationDailySummary';
+import CusViewHotelDetails from './components/CusViewHotelDetails';
+import ReservationHomePage from './components/ReservationHomePage';
 
-import UpdateTourPacakage from "./components/UpdateTourPacakage";
-import ViewBlogs from "./components/viewBlogs";
-import WriteBlog from "./components/writeBlog";
-import ViewOneBlog from "./components/viewOneBlog";
+import UpdateTourPacakage from './components/UpdateTourPacakage';
+import ViewBlogs from './components/viewBlogs';
+import WriteBlog from './components/writeBlog';
+import ViewOneBlog from './components/viewOneBlog';
+import AdminReadBlogs from './components/adminReadBlogs';
+import EditBlog from './components/editBogs';
 
-let isauth = localStorage.getItem("user");
+let isauth = localStorage.getItem('user');
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('');
 
   useEffect(() => {
-    setUser(localStorage.getItem("userRole"));
+    setUser(localStorage.getItem('userRole'));
   }, []);
 
   return (
@@ -64,9 +64,15 @@ function App() {
             path="/UpdateReservation/:id"
             element={<UpdateReservation />}
           />
-          <Route  path="/HotelPackageDetails/:id" element={<HotelPackageDetails />}/>
-          <Route  path="/CusViewReservations" element={<CusViewReservations />}/>
-          
+          <Route
+            path="/HotelPackageDetails/:id"
+            element={<HotelPackageDetails />}
+          />
+          <Route
+            path="/CusViewReservations"
+            element={<CusViewReservations />}
+          />
+
           <Route path="/AllUsers" element={<Allusers />} />
 
           <Route
@@ -107,6 +113,8 @@ function App() {
           <Route exact path="/viewblogs" element={<ViewBlogs />} />
           <Route path="/insertBlog" element={<WriteBlog />} />
           <Route path="/OneBlog/:id" element={<ViewOneBlog />} />
+          <Route path="/adminReadBlog" element={<AdminReadBlogs />} />
+          <Route path="/EditBlog/:id" element={<EditBlog />} />
 
           <Route
             path="/UpdateTourPackages/:id"
