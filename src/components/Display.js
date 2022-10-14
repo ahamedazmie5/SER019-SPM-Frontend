@@ -76,8 +76,8 @@ const Display = () => {
         <MDBTableHead>
           <tr>
             <th scope="col" style={{ border: "none" }}>
-              <h1 style={{ fontSize: "100px", marginTop: "-30%" }}>
-                hellocbdsjbfkjfbhksjfcbs
+              <h1 style={{ fontSize: "30px", marginTop: "-30%" }}>
+                About Us
               </h1>
             </th>
             <th scope="col" style={{ border: "none" }}>
