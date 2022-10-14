@@ -11,7 +11,7 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import AdminDisplay from './components/AdminDisplay';
 import AdminHome from './components/AdminHome';
-
+import CusViewReservations from './components/CusViewReservations';
 import ViewTourPackage from './components/ViewTourPackage';
 import AddHotelPackages from './components/AddHotelPackages';
 import ViewHotelDetails from './components/ViewHotelDetails';
@@ -22,6 +22,8 @@ import ViewReservationDetails from './components/ViewReservationDetails';
 import ReservationDailySummary from './components/ReservationDailySummary';
 import CusViewHotelDetails from './components/CusViewHotelDetails';
 import ReservationHomePage from './components/ReservationHomePage';
+import HotelPackageDetails from './components/HotelPackageDetails';
+
 
 import UpdateTourPacakage from './components/UpdateTourPacakage';
 import ViewBlogs from './components/viewBlogs';
