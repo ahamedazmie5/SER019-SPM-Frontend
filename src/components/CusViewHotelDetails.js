@@ -80,7 +80,7 @@ return (
     <div className="row">
 <div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
 
-<h4>All Hotel Details</h4>
+<h3>All Hotel Details</h3>
 </div>
 <div className="col-lg-3 mt-2 mb-2">
     <input
@@ -111,9 +111,9 @@ return (
 <tr key={index}>
 <th scope="row">{index+1}</th>
 <td>
-<a href={`/post/${post._id}`} style={{textDecoration:'none'}}>
+
 {post.Hotel_ID}
-</a>
+
 </td>
 <td>{post.Hotel_Name}</td>
 <td>{post.Single_Room_Price}</td>

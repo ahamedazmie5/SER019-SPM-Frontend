@@ -84,7 +84,7 @@ return (
     <div className="row">
 <div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
 
-<h4>All Hotel Reservations</h4>
+<h3>All Hotel Reservations</h3>
 </div>
 <div className="col-lg-3 mt-2 mb-2">
     <input
