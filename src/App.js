@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import AddTourPackages from './components/AddTourPackages';
-import Display from './components/Display';
-import Allusers from './components/AllUsers';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+import AddTourPackages from "./components/AddTourPackages";
+import Display from "./components/Display";
+import Allusers from "./components/AllUsers";
+
 
 import Navbar from './components/layout/Navbar';
 import Login from "./components/Auth/Login";
@@ -25,7 +26,6 @@ import ReservationHomePage from './components/ReservationHomePage';
 import HotelPackageDetails from './components/HotelPackageDetails';
 import UserUpdate from './components/UserUpdate';
 
-
 import UpdateTourPacakage from './components/UpdateTourPacakage';
 import ViewBlogs from './components/viewBlogs';
 import WriteBlog from './components/writeBlog';
@@ -33,14 +33,17 @@ import ViewOneBlog from './components/viewOneBlog';
 import AdminReadBlogs from './components/adminReadBlogs';
 import EditBlog from './components/editBogs';
 import UserReport from './components/UserReport'
+import BlogReport from './components/blogReport';
+
 
 let isauth = localStorage.getItem('user');
 
+
 function App() {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState("");
 
   useEffect(() => {
-    setUser(localStorage.getItem('userRole'));
+    setUser(localStorage.getItem("userRole"));
   }, []);
 
   return (
@@ -100,7 +103,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/AddTourPackages" element={<AddTourPackages />} />
-
+   
           <Route path="/Display" element={<Display />} />
           <Route path="/AdminDisplay" element={<AdminDisplay />} />
           <Route path="/AdminHome" element={<AdminHome />} />
@@ -120,6 +123,7 @@ function App() {
           <Route path="/OneBlog/:id" element={<ViewOneBlog />} />
           <Route path="/adminReadBlog" element={<AdminReadBlogs />} />
           <Route path="/EditBlog/:id" element={<EditBlog />} />
+          <Route path="/blogReport" element={<BlogReport />} />
 
           <Route
             path="/UpdateTourPackages/:id"
@@ -130,6 +134,10 @@ function App() {
             element={<UserUpdate />}
           />
         </Routes>
+        <br></br>
+        <div style={{ marginTop: "20%" }}>
+          <Footer />
+        </div>
       </Router>
     </div>
 

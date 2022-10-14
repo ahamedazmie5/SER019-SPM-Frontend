@@ -3,6 +3,7 @@ import axios from 'axios';
 import img32 from'./Images/32.jpg';
 import img34 from'./Images/34.jpg';
 import img33 from'./Images/33.jpg';
+import img19 from'./Images/19.jpg';
 
 export default class UpdateHotelDetails extends Component {
 
@@ -132,23 +133,24 @@ return (
   </nav>
 
 <div className="col-md-8 mt-4 mx-auto">
-<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
+<center><div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
 
-<h4>Update Hotel Package Details</h4>
-</div>
+<center><h3>Update Hotel Package Details</h3></center>
+</div></center>
 
     <form className="needs-validation" noValidate>
 
-    <table style={{width:"80%",backgroundColor:'#d7dbdd'}}>
- 
- <tr>
+    <table style={{width:"100%",backgroundColor:'#d7dbdd'}}>
+    <tr>
     <th><td>
     
 </td>
     <center>
+    <img src={img19}style={{width:'200px',height:'150px'}}></img>
+ 
 <div className="form-group" style={{marginBottom:'15px',marginTop:'10px'}}>
 <label style={{marginBottom:'5px',marginRight:'175px'}}>Hotel_ID</label>
-<input type="text"
+<input type="text" style={{width:"350px"}}
 className="form-contorl"
 name="Hotel_ID"
 placeholder="Hotel_ID"
@@ -158,7 +160,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>   
 <label style={{marginBottom:'5px',marginRight:'150px'}}>Hotel_Name</label>
-<input type="text"
+<input type="text" style={{width:"350px"}}
 className="form-contorl"
 name="Hotel_Name"
 placeholder="Hotel_Name"
@@ -170,7 +172,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'5px',marginRight:'100px'}}>Single_Room_Price</label>
-<input type="text"
+<input type="text" style={{width:"350px"}}
 className="form-contorl"
 name="Single_Room_Price"
 placeholder="Single_Room_Price"
@@ -180,7 +182,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'5px',marginRight:'90px'}}>Double_Room_Price</label>
-<input type="text"
+<input type="text" style={{width:"350px"}}
 className="form-contorl"
 name="Double_Room_Price"
 placeholder="Double_Room_Price"
@@ -190,7 +192,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'5px',marginRight:'95px'}}>Luxury_Room_Price</label>
-<input type="text"
+<input type="text" style={{width:"350px"}}
 className="form-contorl"
 name="Luxury_Room_Price"
 placeholder="Luxury_Room_Price"
@@ -200,7 +202,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'5px',marginRight:'135px'}}>Hotel_Contact</label>
-<input type="text"
+<input type="text" style={{width:"350px"}}
 className="form-contorl"
 name="Hotel_Contact"
 placeholder="Hotel_Contact"
@@ -210,7 +212,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'5px',marginRight:'175px'}}>Location</label>
-<input type="text"
+<input type="text" style={{width:"350px"}}
 className="form-contorl"
 name="Location"
 placeholder="Location"
@@ -221,15 +223,17 @@ onChange={this.handleInputChange}/>
 <button className="btn btn-success" type="submit" style={{marginTop:'15px',marginBottom:'15px',marginLeft:'70px'}} onClick={this.onSubmit}>
     <i className="far fa-check-square"></i>
 &nbsp; Update Details
-</button><br/>
-<img src={img32}style={{width:'200px',height:'150px'}}></img>
-<img src={img34}style={{width:'200px',height:'150px'}}></img>
-<img src={img33}style={{width:'200px',height:'150px'}}></img>
+</button>
+
 </center>
+</th>
+   <th>
+   <img src={img32}style={{width:'200px',height:'150px'}}></img><br/>
+<img src={img34}style={{width:'200px',height:'150px'}}></img><br/>
+<img src={img33}style={{width:'200px',height:'150px'}}></img>
 </th></tr></table>
     </form> 
     </div>
-   
     
 </div>
 

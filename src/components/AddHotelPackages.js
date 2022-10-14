@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import img31 from'./Images/31.jpg';
 import img32 from'./Images/32.jpg';
 import img34 from'./Images/34.jpg';
 import img33 from'./Images/33.jpg';
@@ -115,20 +116,22 @@ return (
     
 
 <div className="col-md-8 mt-4 mx-auto">
-<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
+<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white',width:'900px'}}>
 
-<h4>Add New Hotel Packages</h4>
+<h3>Add New Hotel Packages</h3>
 </div>
+<form className="needs-validation" noValidate>
+    <table style={{width:"100%",backgroundColor:'#d7dbdd'}}>
+  <tr>
+    <th><center>
+<img src={img31}style={{width:'200px',height:'150px'}}></img>
     <img src={img32}style={{width:'200px',height:'150px'}}></img>
 <img src={img34}style={{width:'200px',height:'150px'}}></img>
 <img src={img33}style={{width:'200px',height:'150px'}}></img>
-    <form className="needs-validation" noValidate>
-    <table style={{width:"60%",backgroundColor:'#d7dbdd'}}>
-  <tr>
-    <th><center>
+    
     <div className="form-group" style={{marginBottom:'3px'}}>
 <label style={{marginleft:'100px',marginBottom:'10px',marginTop:'20px',marginRight:'110px'}}>Hotel ID :</label>
-<input type="text"
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Hotel_ID"
 placeholder="Hotel_ID"
@@ -138,7 +141,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'10px',marginTop:'20px',marginRight:'80px'}}>Hotel Name :</label>
-<input type="text"
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Hotel_Name"
 placeholder="Hotel_Name"
@@ -148,7 +151,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'10px',marginRight:'35px'}}>Single Room Price :</label>
-<input type="text"
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Single_Room_Price"
 placeholder="Single_Room_Price"
@@ -158,7 +161,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'10px',marginRight:'25px'}}>Double_Room_Price :</label>
-<input type="text"
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Double_Room_Price"
 placeholder="Double_Room_Price"
@@ -168,7 +171,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'10px',marginRight:'30px'}}>Luxury Room Price :</label>
-<input type="text"
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Luxury_Room_Price"
 placeholder="Luxury_Room_Price"
@@ -178,7 +181,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'10px',marginRight:'70px'}}>Hotel Contact :</label>
-<input type="text"
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Hotel_Contact"
 placeholder="Hotel_Contact"
@@ -188,7 +191,7 @@ onChange={this.handleInputChange}/>
 
 <div className="form-group" style={{marginBottom:'15px'}}>
 <label style={{marginBottom:'10px',marginRight:'110px'}}>Location :</label>
-<input type="text"
+<input type="text" style={{width:"500px"}}
 className="form-contorl"
 name="Location"
 placeholder="Location"
@@ -196,15 +199,15 @@ value={this.state.Location}
 onChange={this.handleInputChange}/>
 </div>
 
-</center>
-</th></tr></table>
+
 <button className="btn btn-success"><a href="/ViewHotelDetails" style={{textDecoration:'none',color:'white',marginTop:'5px'}}>Back</a></button>
 
 <button className="btn btn-success" type="submit" style={{marginTop:'15px',marginLeft:'40px',marginBottom:'20px'}} onClick={this.onSubmit}>
     <i className="far fa-click-square"></i>
 &nbsp; Add new hotel details
 </button>
-
+</center>
+</th></tr></table>
     </form>
     
 
