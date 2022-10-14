@@ -5,6 +5,8 @@ import img7 from'./Images/7.jpg';
 import img8 from'./Images/8.jpg';
 import img34 from'./Images/34.jpg';
 import img33 from'./Images/33.jpg';
+import Paper from '@mui/material/Paper';
+import img35 from './Images/35.jpg';
 export default class AddReservation extends Component {
 
 constructor(props){
@@ -30,6 +32,7 @@ handleInputChange = (e) =>{
   [name]:value
 })
 }
+
 
 onSubmit = (e) =>{
 e.preventDefault();
@@ -79,11 +82,20 @@ axios.post("http://localhost:8080/travelgo/packages/createHotelReservation",data
 }
 
 render() {
+  const myStyle = {
+    backgroundImage: `url(${img35})`,
+    height: '100%',
+    marginTop: '-70px',
+    // fontSize: '50px',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
 return (
+  
     <div>
 <center>
-<nav className="navbar navbar-expand-lg navbar-light bg-light">
-  
+<nav className="navbar navbar-expand-lg navbar-light bg-light" style={{margintop:'20px',marginBottom:'80px'}}>
+
 
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -104,15 +116,17 @@ return (
     </div>
   
   </nav>
-    
+  <div style={myStyle}>
 
-<div className="col-md-8 mt-4 mx-auto">
-<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
+<div className="col-md-8 mt-4 mx-auto" style={{margintop:'20px'}}>
+
+<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white',marginTop:'20px'}}>
 
 <h3>Add New Reservation</h3>
 </div>
     <h4>Thank you for choosing us!</h4>
     <h6>...A perfect home in the perfect location...</h6>
+    <paper>
     <form className="needs-validation" noValidate>
     <table style={{width:"100%",backgroundColor:'#d7dbdd'}}>
   <tr>
@@ -200,9 +214,11 @@ onChange={this.handleInputChange}/>
 <img src={img7}style={{width:'180px',height:'150px'}}></img>
 <img src={img8}style={{width:'180px',height:'150px'}}></img>
 <img src={img33}style={{width:'180px',height:'150px'}}></img>
-</center></table> </form>
-</div>
+</center></table> </form></paper>
+
+</div></div>
 </center>
+
 </div>
 
 )
