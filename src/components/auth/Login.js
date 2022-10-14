@@ -27,7 +27,7 @@ const Login = () => {
       localStorage.setItem("userRole", data?.data?.userRole);
       localStorage.setItem("email", formData.email);
       localStorage.setItem("user", data?.data?.user);
-      navigate("/dashboard");
+      navigate("/Display");
     } else {
       Swal.fire({
         icon: "error",

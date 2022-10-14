@@ -45,7 +45,7 @@ const Navbar = () => {
                       textDecoration: "none",
                     }}
                     class="nav-link"
-                    href="/creategrp"
+                    href="/viewblogs"
                     aria-current="page"
                   >
                     {" "}
@@ -59,26 +59,13 @@ const Navbar = () => {
                       textDecoration: "none",
                     }}
                     class="nav-link"
-                    href="/topicreg"
+                    href="/ReservationHomePage"
                     aria-current="page"
                   >
                     Hotels{" "}
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a
-                    style={{
-                      display: userRole == "customer" ? "flex" : "none",
-                      textDecoration: "none",
-                    }}
-                    class="nav-link"
-                    href="/group-chat"
-                    aria-current="page"
-                  >
-                    {" "}
-                    Gallery
-                  </a>
-                </li>
+               
                 <li class="nav-item">
                   <a
                     style={{
@@ -105,6 +92,48 @@ const Navbar = () => {
                   >
                     {" "}
                     All User
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    style={{
+                      display: userRole == "admin" ? "flex" : "none",
+                      textDecoration: "none",
+                    }}
+                    class="nav-link"
+                    href="/ViewHotelDetails"
+                    aria-current="page"
+                  >
+                    {" "}
+                    Hotel Reservation
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    style={{
+                      display: userRole == "admin" ? "flex" : "none",
+                      textDecoration: "none",
+                    }}
+                    class="nav-link"
+                    href="/AdminDisplay"
+                    aria-current="page"
+                  >
+                    {" "}
+                    Tour Pacakges
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    style={{
+                      display: userRole == "admin" ? "flex" : "none",
+                      textDecoration: "none",
+                    }}
+                    class="nav-link"
+                    href="/adminReadBlog"
+                    aria-current="page"
+                  >
+                    {" "}
+                    Blogs
                   </a>
                 </li>
               </div>
