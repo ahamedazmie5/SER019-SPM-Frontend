@@ -26,8 +26,9 @@ import {
   CardText,
 } from 'reactstrap';
 
-import arch1 from '../assets/arch.jpeg';
+import abc from '../assets/abc.webp';
 import background from '../assets/blogBackground.jpg';
+import back from '../assets/back.jpg';
 import ViewOneBlog from './viewOneBlog';
 //import data from './data';
 
@@ -114,74 +115,90 @@ const ViewBlogs = () => {
   //   );
   // });
 
+  const myStyle = {
+    backgroundImage: `url(${abc})`,
+    height: '100%',
+    marginTop: '-70px',
+    // fontSize: '50px',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
+
   return (
     <>
-      <a href="/insertBlog" style={{ marginTop: 10 }}>
-        Write Blogs
-      </a>
-      <div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          {' '}
-          <div>
-            <input
-              placeholder="Search here"
-              type={'text'}
-              //value={filter}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            ></input>
-          </div>
-        </div>
-
+      <div style={myStyle}>
+        <a href="/insertBlog" style={{ marginTop: 10 }}>
+          Write Blogs
+        </a>
         <div>
-          <div>
-            <Typography
-              style={{
-                textAlign: 'center',
-                fontFamily: 'Georgia, Serif',
-                fontWeight: 'bold',
-                marginBottom: 14,
-                marginTop: 14,
-                fontSize: 53,
-                color: '#001a66',
-              }}
-            >
-              Travel around the world{' '}
-            </Typography>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              marginRight: 20,
+            }}
+          >
+            {' '}
+            <div>
+              <input
+                placeholder="Search here"
+                type={'text'}
+                //value={filter}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              ></input>
+            </div>
           </div>
-          <div>
-            <Typography
-              style={{
-                textAlign: 'center',
-                fontFamily: 'Georgia, Serif',
-                fontWeight: 'bold',
-                marginBottom: 14,
-                marginTop: 14,
-                fontSize: 53,
-                color: '#001a66',
-              }}
-            >
-              with knowledge
-            </Typography>
-          </div>
-          <div>
-            <Typography style={{ color: '#FF9500', fontWeight: 'bold' }}>
-              READ BLOGS ABOUT THE PLACES YOU TRAVEL...
-            </Typography>
-          </div>
-        </div>
-        <br />
-        <br />
 
-        {/* <div>
+          <div>
+            <div>
+              <Typography
+                style={{
+                  textAlign: 'center',
+                  fontFamily: 'Georgia, Serif',
+                  fontWeight: 'bold',
+                  marginBottom: 14,
+                  marginTop: 14,
+                  fontSize: 53,
+                  color: '#001a66',
+                }}
+              >
+                Travel around the world{' '}
+              </Typography>
+            </div>
+            <div>
+              <Typography
+                style={{
+                  textAlign: 'center',
+                  fontFamily: 'Georgia, Serif',
+                  fontWeight: 'bold',
+                  marginBottom: 14,
+                  marginTop: 14,
+                  fontSize: 53,
+                  color: '#001a66',
+                }}
+              >
+                with knowledge
+              </Typography>
+            </div>
+            <div style={{ marginLeft: 40 }}>
+              <Typography style={{ color: '#FF9500', fontWeight: 'bold' }}>
+                READ BLOGS ABOUT THE PLACES YOU TRAVEL...
+              </Typography>
+            </div>
+          </div>
+          <br />
+          <br />
+
+          {/* <div>
           <img
             src={arch1}
             alt="background"
             style={{ width: '100%', height: 300, borderRadius: 5 }}
           />
         </div> */}
-        <br />
+          <br />
 
-        {/* <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
           <Grid
             container
             columnSpacing={{ xs: 0 }}
@@ -235,61 +252,67 @@ const ViewBlogs = () => {
           </Grid>
         </Box> */}
 
-        <Container>
-          <Row xs={4}>
-            {blogsArray
-              ?.filter((blogsArray) => {
-                if (searchTerm === '') {
-                  return blogsArray;
-                } else if (
-                  blogsArray.title
-                    .toLowerCase()
-                    .includes(searchTerm.toLocaleLowerCase())
-                ) {
-                  return blogsArray;
-                }
-              })
-              .map((blogsArray, index) => {
-                return (
-                  <Col style={{ padding: '10px', height: 'auto' }} key={index}>
-                    <Card>
-                      <CardHeader>
-                        <CardTitle style={{ color: 'black', fontSize: '25px' }}>
+          <Container>
+            <Row xs={4}>
+              {blogsArray
+                ?.filter((blogsArray) => {
+                  if (searchTerm === '') {
+                    return blogsArray;
+                  } else if (
+                    blogsArray.title
+                      .toLowerCase()
+                      .includes(searchTerm.toLocaleLowerCase())
+                  ) {
+                    return blogsArray;
+                  }
+                })
+                .map((blogsArray, index) => {
+                  return (
+                    <Col
+                      style={{ padding: '10px', height: 'auto' }}
+                      key={index}
+                    >
+                      <Card>
+                        <CardHeader>
+                          <CardTitle
+                            style={{ color: 'black', fontSize: '25px' }}
+                          >
+                            <center>
+                              <b>{blogsArray.title}</b>
+                            </center>
+                          </CardTitle>
                           <center>
-                            <b>{blogsArray.title}</b>
+                            <CardImg
+                              //width="50%"
+                              src={blogsArray?.image}
+                              alt="computing Img"
+                              style={{ width: '100%', height: '100%' }}
+                            />
                           </center>
-                        </CardTitle>
-                        <center>
-                          <CardImg
-                            //width="50%"
-                            src={blogsArray?.image}
-                            alt="computing Img"
-                            style={{ width: '100%', height: '100%' }}
-                          />
-                        </center>
-                      </CardHeader>
-                      <CardBody>
-                        {/* <CardText> description -: {blogsArray.title}</CardText> */}
-                        <CardText style={{ color: 'black' }}>
-                          <b>{blogsArray.subDescription}</b>
-                        </CardText>
+                        </CardHeader>
+                        <CardBody>
+                          {/* <CardText> description -: {blogsArray.title}</CardText> */}
+                          <CardText style={{ color: 'black' }}>
+                            <i>{blogsArray.subDescription}</i>
+                          </CardText>
 
-                        <Button
-                          style={{ marginRight: '20px', width: '100%' }}
-                          className="btn btn-success"
-                          onClick={(e) => {
-                            readMore(e, blogsArray.id);
-                          }}
-                        >
-                          Read more
-                        </Button>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                );
-              })}
-          </Row>
-        </Container>
+                          <Button
+                            style={{ marginRight: '20px', width: '100%' }}
+                            className="btn btn-success"
+                            onClick={(e) => {
+                              readMore(e, blogsArray.id);
+                            }}
+                          >
+                            Read more
+                          </Button>
+                        </CardBody>
+                      </Card>
+                    </Col>
+                  );
+                })}
+            </Row>
+          </Container>
+        </div>
       </div>
     </>
   );

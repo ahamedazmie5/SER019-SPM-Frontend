@@ -1,14 +1,17 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import AddTourPackages from "./components/AddTourPackages";
-import Display from "./components/Display";
-import Allusers from "./components/AllUsers";
-import Footer from "./components/auth/Footer";
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import AddTourPackages from './components/AddTourPackages';
+import Display from './components/Display';
+import Allusers from './components/AllUsers';
+
 import Navbar from './components/layout/Navbar';
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
-import RegisterAdmin from "./components/auth/RegisterAdmin";
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import RegisterAdmin from './components/Auth/RegisterAdmin';
 import Landing from './components/layout/Landing';
+import Footer from './components/Auth/Footer';
+
 import AdminDisplay from './components/AdminDisplay';
 import AdminHome from './components/AdminHome';
 import CusViewReservations from './components/CusViewReservations';
@@ -23,7 +26,9 @@ import ReservationDailySummary from './components/ReservationDailySummary';
 import CusViewHotelDetails from './components/CusViewHotelDetails';
 import ReservationHomePage from './components/ReservationHomePage';
 import HotelPackageDetails from './components/HotelPackageDetails';
+
 import UserUpdate from './components/UserUpdate';
+
 
 import UpdateTourPacakage from './components/UpdateTourPacakage';
 import ViewBlogs from './components/viewBlogs';
@@ -38,12 +43,11 @@ import BlogReport from './components/blogReport';
 
 let isauth = localStorage.getItem('user');
 
-
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('');
 
   useEffect(() => {
-    setUser(localStorage.getItem("userRole"));
+    setUser(localStorage.getItem('userRole'));
   }, []);
 
   return (
@@ -135,7 +139,9 @@ function App() {
           />
         </Routes>
         <br></br>
+
         <div style={{ marginTop: "0%" }}>
+
           <Footer />
         </div>
       </Router>

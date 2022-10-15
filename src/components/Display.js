@@ -1,8 +1,10 @@
 
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 import DisplayBanner from "../assets/DisplayBanner.png";
+
 
 import {
   Card,
@@ -32,6 +34,18 @@ const Display = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const navigate = useNavigate();
+
+  //get one blog
+  const readMore = async (e, id) => {
+    try {
+      navigate(`/OneBlog/${id}`);
+      //}
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   //get all blogs
@@ -71,15 +85,27 @@ const Display = () => {
       <div style={{ marginTop: '30px' }}></div>
       <br />
 
-
       <MDBTable>
         <MDBTableHead>
           <tr>
+
+            <th scope="col" style={{ border: 'none' }}>
+              <h1 style={{ fontSize: '100px', marginTop: '-30%' }}>
+                hellocbdsjbfkjfbhksjfcbs
+              </h1>
+            </th>
+            <th scope="col" style={{ border: 'none' }}>
+              <img
+                src={HomeBanner2}
+                alt="HomeBanner2"
+                style={{ width: '90%', height: '100%', borderRadius: 5 }}
+
             <th scope="col" style={{ border: "none" }}>
               <img
                 src={DisplayBanner}
                 alt="DisplayBanner"
                 style={{ width: "90%", height: "100%", borderRadius: 5 }}
+
               />
             </th>
           </tr>
@@ -172,8 +198,11 @@ const Display = () => {
                       style={{ marginRight: '20px', width: '100%' }}
                       className="btn btn-success"
                       // href={`/Vi/${blogsArray._id}`}
+                      onClick={(e) => {
+                        readMore(e, blogsArray.id);
+                      }}
                     >
-                      View Pacakage
+                      Read More
                     </Button>
                   </CardBody>
                 </Card>
