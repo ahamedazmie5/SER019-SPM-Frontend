@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
-import HomeBanner2 from "../assets/HomeBanner2.png";
+import DisplayBanner from "../assets/DisplayBanner.png";
 
 import {
   Card,
@@ -76,14 +76,9 @@ const Display = () => {
         <MDBTableHead>
           <tr>
             <th scope="col" style={{ border: "none" }}>
-              <h1 style={{ fontSize: "30px", marginTop: "-30%" }}>
-                About Us
-              </h1>
-            </th>
-            <th scope="col" style={{ border: "none" }}>
               <img
-                src={HomeBanner2}
-                alt="HomeBanner2"
+                src={DisplayBanner}
+                alt="DisplayBanner"
                 style={{ width: "90%", height: "100%", borderRadius: 5 }}
               />
             </th>
@@ -91,7 +86,7 @@ const Display = () => {
         </MDBTableHead>
         <MDBTableBody></MDBTableBody>
       </MDBTable>
-
+<hr></hr>
       <center>
         <h1>
           <b>Tour Packages</b>
