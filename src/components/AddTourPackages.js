@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import computing from "../assets/computing.jpg";
+import UploadGif from "../assets/UploadGif4.gif";
 import FileInput from "../utils/FileInput";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -48,7 +48,7 @@ const AddTourPackages = () => {
               <div className="card1 pb-5">
                 <div className="row px-3 justify-content-center mt-4 mb-5 border-line">
                   <img
-                    src={computing}
+                    src={UploadGif}
                     style={{ width: "90%", height: "90%" }}
                   />
                 </div>
@@ -58,7 +58,7 @@ const AddTourPackages = () => {
             <div className="col-lg-6">
               <div className="card2 card border-0 px-4 py-5">
                 <form onSubmit={changeOnClick} encType="">
-                  <h1 style={{ color: "red" }}>Add Tour Packages </h1>
+                  <h1 style={{ color: "red",fontFamily:"serif" }}>Add Tour Packages </h1>
                   <br></br>
 
                   <div class="form-floating mb-3">

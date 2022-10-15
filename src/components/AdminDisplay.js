@@ -65,19 +65,52 @@ const AdminDisplay = () => {
     SetMarkingSchema(MarkingSchema.filter((elem) => elem._id !== id));
   };
 
+
+  const filterData = (packageSearch, Searchkey) => {
+    console.log(packageSearch, Searchkey);
+    const result = packageSearch.filter(
+        (user) =>
+            user.topic.toString().toLowerCase().includes(Searchkey),
+    );
+    SetMarkingSchema(result);
+}
+
+const handleSearchArea = async (e) => {
+    const Searchkey = e.currentTarget.value;
+    await axios
+    .get("http://localhost:8080/travelgo/getAllTourPackages").then((data) => {
+        console.log(data?.data);
+        filterData(data?.data, Searchkey);        
+    });
+}
+
   return (
     <div style={{ textAlign: "center" }}>
-      <div style={{ marginTop: "30px" }}>
-        <center>
-          <h1>Welcome to TravelGO Admin</h1>
-        </center>
-      </div>
-      <br />
+      
+      <br/><br/>
 
       <center>
-        <h1>Tour Packages</h1>
+        <h1 style={{fontFamily:"serif"}}>Tour Packages</h1>
+        <br/><br/>
+        
       </center>
+      
       <Container>
+      <div style={{ float: "left" }}>
+          <input
+              className="form-control"
+              style={{ width: "400px" }}
+              type="search"
+              placeholder="Search Tour Packages"
+              name="searchQuery"
+              onChange={(e) => handleSearchArea(e)}
+          >
+          </input>
+      </div>
+      <Link to={`/AddTourPackages`} style={{float:"right"}}>
+        <button className="btn btn-success">Add Tour Package</button>                            
+      </Link>
+      <br/><br/><br/>
         <Row xs={4}>
           {MarkingSchema?.map((tourpackage) => {
             return (
@@ -106,9 +139,9 @@ const AdminDisplay = () => {
 
                         <div>
                           <Link to={`/UpdateTourPackages/${tourpackage._id}`}>
-                            <button className="btn btn-success">Update</button>
-                            &nbsp;&nbsp;&nbsp;
+                            <button className="btn btn-success">Update</button>                            
                           </Link>
+                          &nbsp;&nbsp;&nbsp;
                           <button
                             name="submit"
                             class="btn btn-danger"
