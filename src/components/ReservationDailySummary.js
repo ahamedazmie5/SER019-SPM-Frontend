@@ -93,7 +93,7 @@ export default class ReservationDailySummary extends Component {
               <center>
                 <div className="col-lg-9 mt-2 mb-2" style={{ backgroundColor: '#0000A0', color: 'white' }}>
 
-                  <h4>Reservation Daily Summary</h4>
+                  <h3>Reservation Daily Summary</h3>
                 </div>
               </center>
             </div>
@@ -142,7 +142,7 @@ export default class ReservationDailySummary extends Component {
                 </tr>
               ))}
             </tbody>
-          </table><center>
+          </table>
           <table><th>
           <div>
           <ReactHTMLTableToExcel
@@ -151,18 +151,18 @@ export default class ReservationDailySummary extends Component {
                     table="table-to-xls"
                     filename="Reservation Details"
                     sheet="tablexls"
-                    buttonText="Download as XLS"/>
+                    buttonText="Reservation Summary Report Download as XLS"/>
           </div> 
           </th>
           <th></th>
           <th style={{marginleft:"10px"}}>
-          <button id="test-table-xls-button" className="btn btn-success"><a href="/DailySummaryReport" style={{ textDecoration: 'none', color: 'white' }}>Genarate Daily Summary</a></button>
-          </th></table></center>
+          
+          </th></table>
         </div>
        
         <div style={{display:"none"}}>
           <table  id="table-to-xls">
-            <center><tr><h2>Reservation Daily Summary Report</h2></tr></center>
+            <center><tr><h2>Reservation Summary Report</h2></tr></center>
               <tr><h3>
                 <th Scope="col">#</th>
                 <th Scope="col">Customer_Name</th>

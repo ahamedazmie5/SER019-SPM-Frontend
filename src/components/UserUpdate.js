@@ -3,18 +3,20 @@
  import React from "react";
  import { useState, useEffect } from "react";
  import { Link, useNavigate, useParams } from "react-router-dom";
- import { getUser, UpdateUser } from "./services/TourPacakage";
+ import { getUser, updateUserById } from "./ServicesDisa/User";
  import { Button } from "reactstrap";
  
+  
  
- const  UpdateUser = () => {
+ 
+ const  UserUpdate = () => {
  
    const navigate = useNavigate();
    const { id } = useParams();
  
    const [email, setemail] = useState("");
-   const [userName, setuserName] = useState();
-   const [contactNumber, setcontactNumber] = useState("");
+   const [Fullname, setFullname] = useState();
+   const [pNumber, setpNumber] = useState("");
  
    
    
@@ -24,12 +26,12 @@
      setemail(e.target.value);
    };
  
-   const handleuserName = (e) => {
-     setuserName(e.target.value);
+   const handleFullname = (e) => {
+     setFullname(e.target.value);
    };
  
-   const handlecontactNumber = (e) => {
-     setcontactNumber(e.target.value);
+   const handlepNumber = (e) => {
+     setpNumber(e.target.value);
    };
  
  
@@ -42,12 +44,9 @@
      let data = await getUser(id);
      console.log("Update User", data);
  
-     setemail(data?.data?.email);
-     setuserName(data?.data?.userName);
-     setcontactNumber(data?.data?.contactNumber);
-  
-     
- 
+    setemail(data?.data?.email);
+    setFullname(data?.data?.Fullname);
+    setpNumber(data?.data?.pNumber);
    };
  
    useEffect(() => {
@@ -58,15 +57,14 @@
      e.preventDefault();
      let newdata = {
  
-       email: email,
-   
-       userName: userName,
-       contactNumber: contactNumber,
+       email: email, 
+       Fullname: Fullname,
+       pNumber: pNumber,
       
  
      };
  
-     let data = await UpdateUser(id, newdata);
+     let data = await updateUserById(id, newdata);
      console.log("Update success ", data);
      if (!data?.data?.email) {
        {
@@ -76,7 +74,7 @@
  
      } else {
        {
-         Swal.fire('Congrats', 'Update room successfully ', 'success')
+         Swal.fire('Congrats', 'Update User Unsuccessful', 'success')
          navigate("");
        }
      }
@@ -86,25 +84,25 @@
      <div>
        <div className="container shadow border border-5 my-5 mx-auto w-50">
          <div className="col p-3">
-           <h3 className=" fw-bolder mb-4"><center>Update package Details</center></h3>
+           <h3 className=" fw-bolder mb-4"><center>Update User Details</center></h3>
            <form>
  
              <div className="row py-3">
                <div className="col-md-6">
-                 <label for="name"> email  </label>
+                 <label for="name"> Email  </label>
                  <input type="text" class="form-control" value={email} onChange={handleemail} placeholder=" " />
                </div>
                <div class="col-md-6">
-                 <label for="type"> Room Type  </label>
-                 <input class="form-control" id="type" value={userName} onChange={handleuserName} placeholder="" />
+                 <label for="type"> Full Name  </label>
+                 <input class="form-control" id="type" value={Fullname} onChange={handleFullname} placeholder="" />
                </div>
  
              </div>
  
              <div className="row py-3">
                <div class="col-md-3">
-                 <label for="count"> Max Count </label>
-                 <input class="form-control" type="text" value={contactNumber} onChange={handlecontactNumber} placeholder="Enter Max Count" />
+                 <label for="count"> Mobile Number </label>
+                 <input class="form-control" type="text" value={pNumber} onChange={handlepNumber} placeholder="Enter Max Count" />
                </div>
                
                
@@ -123,4 +121,4 @@
    );
  };
  
- export default  UpdateTourPacakage;
+ export default  UserUpdate;

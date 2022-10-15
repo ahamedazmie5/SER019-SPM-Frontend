@@ -92,11 +92,11 @@ const  UpdateTourPacakage = () => {
 
             <div className="row py-3">
               <div className="col-md-6">
-                <label for="name"> title  </label>
+                <label for="name"> Price </label>
                 <input type="text" class="form-control" value={title} onChange={handletitle} placeholder=" " />
               </div>
               <div class="col-md-6">
-                <label for="type"> Room Type  </label>
+                <label for="type"> Package Name  </label>
                 <input class="form-control" id="type" value={topic} onChange={handletopic} placeholder="" />
               </div>
 
@@ -104,7 +104,7 @@ const  UpdateTourPacakage = () => {
 
             <div className="row py-3">
               <div class="col-md-3">
-                <label for="count"> Max Count </label>
+                <label for="count"> Description</label>
                 <input class="form-control" type="text" value={description} onChange={handledescription} placeholder="Enter Max Count" />
               </div>
               

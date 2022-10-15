@@ -123,16 +123,20 @@ return (
   </nav>
 
 <div className="col-md-8 mt-4 mx-auto">
-<div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
+<center><div className="col-lg-9 mt-2 mb-2" style={{backgroundColor:'#0000A0',color:'white'}}>
 
-<h4>Update Your Reservation Details</h4>
-</div>
+<center><h3>Update Your Reservation Details</h3></center>
+</div></center>
     <form className="needs-validation" noValidate>
 
     <table style={{width:"100%",backgroundColor:'#d7dbdd'}}>
   <tr>
     <th>
-    
+    <img src={img19}style={{width:'200px',height:'150px'}}></img><br/>
+    <img src={img9}style={{width:'200px',height:'150px'}}></img><br/>
+    <img src={img13}style={{width:'200px',height:'150px'}}></img><br/>
+<img src={img8}style={{width:'200px',height:'150px'}}></img>
+</th> <th>
     <center>
 <div className="form-group" style={{marginBottom:'15px',marginTop:'10px'}}>
 <label style={{marginBottom:'5px',marginRight:'40px'}}>Customer_Name</label>
@@ -211,13 +215,7 @@ onChange={this.handleInputChange}/>
 </button></center>
 </th></tr></table>
     </form> 
-    </div><center>
-    <img src={img9}style={{width:'200px',height:'150px'}}></img>
-    <img src={img13}style={{width:'200px',height:'150px'}}></img>
-<img src={img19}style={{width:'200px',height:'150px'}}></img>
-<img src={img8}style={{width:'200px',height:'150px'}}></img> 
-<img src={img10}style={{width:'200px',height:'150px'}}></img>  
-</center></div>
+    </div></div>
 
 )
 }

@@ -21,13 +21,13 @@ const Login = () => {
     e.preventDefault();
     console.log("data", formData.email);
     let data = await LoginCustomer(formData);
-    console.log("data", data.data.email);
+    console.log("data", data);
     if (data?.data?.userRole) {
       localStorage.setItem("token", data?.data?.token);
       localStorage.setItem("userRole", data?.data?.userRole);
       localStorage.setItem("email", formData.email);
       localStorage.setItem("user", data?.data?.user);
-      navigate("/dashboard");
+      navigate("/Display");
     } else {
       Swal.fire({
         icon: "error",

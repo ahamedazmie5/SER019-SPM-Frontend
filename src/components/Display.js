@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
-import HomeBanner2 from '../assets/HomeBanner2.png';
+
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
+import DisplayBanner from "../assets/DisplayBanner.png";
+
 
 import {
   Card,
@@ -85,6 +88,7 @@ const Display = () => {
       <MDBTable>
         <MDBTableHead>
           <tr>
+
             <th scope="col" style={{ border: 'none' }}>
               <h1 style={{ fontSize: '100px', marginTop: '-30%' }}>
                 hellocbdsjbfkjfbhksjfcbs
@@ -95,13 +99,20 @@ const Display = () => {
                 src={HomeBanner2}
                 alt="HomeBanner2"
                 style={{ width: '90%', height: '100%', borderRadius: 5 }}
+
+            <th scope="col" style={{ border: "none" }}>
+              <img
+                src={DisplayBanner}
+                alt="DisplayBanner"
+                style={{ width: "90%", height: "100%", borderRadius: 5 }}
+
               />
             </th>
           </tr>
         </MDBTableHead>
         <MDBTableBody></MDBTableBody>
       </MDBTable>
-
+<hr></hr>
       <center>
         <h1>
           <b>Tour Packages</b>

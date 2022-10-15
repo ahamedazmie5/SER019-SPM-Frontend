@@ -109,7 +109,7 @@ const ViewTourPackage = () => {
                 <td style={ {border: "none"}} >
                   {" "}
                   <center>
-                    <label>Description :- {data.description}</label>
+                    <label>{data.description}</label>
                   </center>
                 </td>
               </tr>
@@ -118,7 +118,7 @@ const ViewTourPackage = () => {
                   {" "}
                   <center>
                     {" "}
-                    <label> Price :- &nbsp;LKR {data.title}</label>
+                    <label><b> Price :- &nbsp;LKR {data.title}</b></label>
                   </center>
                 </td>
               </tr>
