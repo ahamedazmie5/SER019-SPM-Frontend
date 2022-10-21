@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# SER019-SPM-Backend
+## Project name:TravelGo 
+## Group Details
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* IT20132750 Ahamed A.I
+* IT20134730 Jayathilaka A.D.N
+* IT20158422 Paboda P.D.K
+* IT20000608 Nawarathna M.T.I
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+This is the project of the group SER019 for the module Software Project Management(SE3080), Sri Lanka Institute of Information Technology(SLIIT).
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The goal of this project is to create an online web application of a hotel reservation system that a user reserve hotel rooms and read blogs about traveling places and also to view tour packages and their prices. Also administrator can add hotel details , tour packages and travel blogs to the system. Customer and Admin are the two user roles. The main functions which are identified in here are,
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* User authentication Management
+* Tour package  Management
+* Hotel Management
+* Blog Management
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This web application consist of admin front-end, customer front-end, backend and the dayabase server. The frontend is implemented from React JS and the backend is implemented from Node.js and Express.js . Database is mongo Db. In this application user registration and login is handled from the user authentication function. Deviding the system into customer use and administrator use is done by this function. From tour package management function, add , delete and update tour packages with their prices are handled. Also customer can view those tour packages with 
+their prices. Add hotel details to the system, update hotel details and deleting them from admin side is handled from the hotel management function. Hotel room reservation from the customer side is also handled from the hotel management function. Adding blogs about the places to travel , delete and update those blog details from the admin side is handled from the blog management function. And allow customer to read those blogs also handled from the blog management function. Also there are user friendly user interfaces in this application.
+## Technologies
 
-### `npm run build`
+* ReactJS
+* NodeJS
+* ExpressJS
+* MongoDB
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to get started
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. NodeJS latest LTS version installed
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. MongoDB database
 
-### `npm run eject`
+### Procedure of running the project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Open the folder from code editor.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Go to the directory named SER019-SPM-Backend from the terminal  and run the command 'npm i --force'
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Go to the directory named SER019-SPM-Frontend from the terminal and run the command 'npm i --force'
 
-## Learn More
+4.Open the SER019-SPM-Backend directory in separate command prompt/powershell window and run the command 'npm start' 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5.Go to the directory named SER019-SPM-Frontend directory in separate command prompt/powershelland run the command 'npm start'
