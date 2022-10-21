@@ -46,6 +46,6 @@ their prices. Add hotel details to the system, update hotel details and deleting
 
 4. Go to the directory named SER019-SPM-Frontend from the terminal and run the command 'npm i --force'
 
-5.Open the SER019-SPM-Backend directory in separate command prompt/powershell window and run the command 'npm start' 
+5. Open the SER019-SPM-Backend directory in separate command prompt/powershell window and run the command 'npm start' 
 
-6.Go to the directory named SER019-SPM-Frontend directory in separate command prompt/powershelland run the command 'npm start'
+6. Go to the directory named SER019-SPM-Frontend directory in separate command prompt/powershelland run the command 'npm start'
