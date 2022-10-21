@@ -1,4 +1,4 @@
-# SER019-SPM-Backend
+# SER019-SPM-Frontend
 ## Project name:TravelGo 
 ## Group Details
 
